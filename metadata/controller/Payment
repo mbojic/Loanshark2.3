@@ -1,0 +1,399 @@
+{
+    "type": "Ext.app.Controller",
+    "reference": {
+        "name": "items",
+        "type": "array"
+    },
+    "codeClass": null,
+    "userConfig": {
+        "designer|userClassName": "Payment",
+        "stores": [
+            "PaymentStore"
+        ],
+        "views": [
+            "PaymentDetail"
+        ]
+    },
+    "designerId": "ee498a7b-b1b2-4ea2-b5dd-3cd476a7d02c",
+    "cn": [
+        {
+            "type": "controllerref",
+            "reference": {
+                "name": "items",
+                "type": "array"
+            },
+            "codeClass": null,
+            "userConfig": {
+                "ref": "cancelPayment",
+                "selector": "button#cancelPayment"
+            },
+            "name": "cancelPayment",
+            "designerId": "ce9a0b05-1acb-4eb4-8b41-879a050a6e5b"
+        },
+        {
+            "type": "controllerref",
+            "reference": {
+                "name": "items",
+                "type": "array"
+            },
+            "codeClass": null,
+            "userConfig": {
+                "ref": "savePayment",
+                "selector": "button#savePayment"
+            },
+            "name": "savePayment",
+            "designerId": "8459a62d-b173-4772-a414-211439d6e4fa"
+        },
+        {
+            "type": "controlleraction",
+            "reference": {
+                "name": "listeners",
+                "type": "array"
+            },
+            "codeClass": null,
+            "userConfig": {
+                "designer|controlQuery": "button#addPayment",
+                "designer|targetType": "Ext.Button",
+                "fn": "onAddPayment",
+                "implHandler": [
+                    "//reset record",
+                    "this.getPaymentDetail().setRecord(null);",
+                    "",
+                    "//set the debt that this payment should be added to",
+                    "this.getPaymentDetail().setValues({",
+                    "    debt_id: this.getDebtDetail().getRecord().get('id')",
+                    "});",
+                    "",
+                    "//activate contact detail view",
+                    "Ext.Viewport.setActiveItem(this.getPaymentDetail());"
+                ],
+                "name": "tap"
+            },
+            "name": "onAddPayment",
+            "designerId": "2d3f47e6-ab7d-464f-8ba5-97c0d59e3dfa"
+        },
+        {
+            "type": "controllerref",
+            "reference": {
+                "name": "items",
+                "type": "array"
+            },
+            "codeClass": null,
+            "userConfig": {
+                "autoCreate": true,
+                "ref": "paymentDetail",
+                "selector": "formpanel#PaymentDetail",
+                "xtype": "PaymentDetail"
+            },
+            "name": "paymentDetail",
+            "designerId": "f776c991-f3e5-44f0-a4b1-23a7f6214bae"
+        },
+        {
+            "type": "controlleraction",
+            "reference": {
+                "name": "listeners",
+                "type": "array"
+            },
+            "codeClass": null,
+            "userConfig": {
+                "designer|controlQuery": "#cancelPayment",
+                "designer|targetType": "Ext.Button",
+                "fn": "onCancelPayment",
+                "implHandler": [
+                    "//reset form",
+                    "this.getPaymentDetail().reset();",
+                    "//reset record",
+                    "this.getPaymentDetail().setRecord(null);",
+                    "//return to debtDetailView view",
+                    "Ext.Viewport.setActiveItem(this.getDebtDetail());"
+                ],
+                "name": "tap"
+            },
+            "name": "onCancelPayment",
+            "designerId": "bb974791-5979-41f6-b8e7-4b8d4bac638f"
+        },
+        {
+            "type": "controllerref",
+            "reference": {
+                "name": "items",
+                "type": "array"
+            },
+            "codeClass": null,
+            "userConfig": {
+                "ref": "debtDetail",
+                "selector": "formpanel#DebtDetail"
+            },
+            "name": "debtDetail",
+            "designerId": "c3bc0653-a8c2-418d-b060-a4c6a5e5579f"
+        },
+        {
+            "type": "controlleraction",
+            "reference": {
+                "name": "listeners",
+                "type": "array"
+            },
+            "codeClass": null,
+            "userConfig": {
+                "designer|controlQuery": "#savePayment",
+                "designer|targetType": "Ext.Button",
+                "fn": "onSavePayment",
+                "implHandler": [
+                    "var paymentDetail = this.getPaymentDetail(),",
+                    "    record = paymentDetail.getRecord(),",
+                    "    values = paymentDetail.getValues(),",
+                    "    paymentStore = Ext.getStore('PaymentStore'),",
+                    "    debtsStore = Ext.getStore('DebtsStore'),",
+                    "    peopleStore = Ext.getStore('PeopleStore'),",
+                    "    debt = debtsStore.findRecord('id', values.debt_id);",
+                    "    person = peopleStore.findRecord('id', debt.get('person_id'));",
+                    "",
+                    "//check that an amount is specified",
+                    "if (!values.amount) {",
+                    "    new Ext.MessageBox().show({",
+                    "        message: 'A payment should have an amount!'",
+                    "    });",
+                    "//check that this payment does not exceed balance left on debt",
+                    "//if it's amount being added, check against current balance",
+                    "//if it's being modified, check if it's larger than previous",
+                    "} else if (!record && values.amount > debt.get('balance')) {",
+                    "    new Ext.MessageBox().show({",
+                    "        message: \"That's way too much! Last payment should not be more than $ \" + debt.get('balance').toFixed(2)",
+                    "    });",
+                    "} else if (record && values.amount > (debt.get('balance') + record.get('amount'))) {",
+                    "    new Ext.MessageBox().show({",
+                    "        message: \"That's way too much! Last payment should not be more than $ \" + (debt.get('balance') + record.get('amount')).toFixed(2)",
+                    "    });",
+                    "} else {",
+                    "    if(record) {",
+                    "        //save values to the record",
+                    "        record.set(values);",
+                    "        record.save();",
+                    "    } else {",
+                    "        //else create a new record",
+                    "        record = Ext.create('Payback.model.Payment', values);",
+                    "        //set the current date",
+                    "        record.set('date', new Date());",
+                    "        paymentStore.add(record);",
+                    "    }",
+                    "    //calculate new debt balance",
+                    "    debt.calcBalance();",
+                    "    //calculate new person balance",
+                    "    person.calcBalance();",
+                    "",
+                    "    //reset form",
+                    "    paymentDetail.reset();",
+                    "    //reset record",
+                    "    paymentDetail.setRecord(null);",
+                    "",
+                    "    //return to debtDetail view",
+                    "    Ext.Viewport.setActiveItem(this.getDebtDetail());",
+                    "",
+                    "    //reload stores",
+                    "    paymentStore.load();",
+                    "    debtsStore.load();",
+                    "    peopleStore.load();",
+                    "",
+                    "}",
+                    ""
+                ],
+                "name": "tap"
+            },
+            "name": "onSavePayment",
+            "designerId": "24ee1bf4-f106-4db9-ac28-db5331fd0962"
+        },
+        {
+            "type": "controlleraction",
+            "reference": {
+                "name": "listeners",
+                "type": "array"
+            },
+            "codeClass": null,
+            "userConfig": {
+                "designer|controlQuery": "#paymentDataView #paymentListItemDetail #deletePayment",
+                "designer|targetType": "Ext.Button",
+                "fn": "onDeletePayment",
+                "implHandler": [
+                    "//prevent event triggering onDebtTap by accident",
+                    "e.stopEvent();",
+                    "",
+                    "var payment = button.getData(),",
+                    "    debt,",
+                    "    person,",
+                    "    peopleStore = Ext.getStore('PeopleStore'),",
+                    "    debtsStore = Ext.getStore('DebtsStore'),",
+                    "    paymentStore = Ext.getStore('PaymentStore');",
+                    "",
+                    "//reset delete buttons",
+                    "this.resetDeleteButtonsPaymentDataView();",
+                    "",
+                    "//find the debt and person connected to the payment",
+                    "debt = debtsStore.findRecord('id', payment.get('debt_id'));",
+                    "person = peopleStore.findRecord('id', debt.get('person_id'));",
+                    "",
+                    "//remove payment",
+                    "payment.erase();",
+                    "",
+                    "paymentStore.load();",
+                    "",
+                    "debt.calcBalance();",
+                    "",
+                    "debtsStore.load();",
+                    "",
+                    "person.calcBalance();",
+                    "",
+                    "peopleStore.load();",
+                    "",
+                    "this.getDebtDetail().updateDebtHeaderLabel();",
+                    "",
+                    "//reapply filter",
+                    "paymentStore.filter('debt_id', debt.get('id'));",
+                    ""
+                ],
+                "name": "tap"
+            },
+            "name": "onDeletePayment",
+            "designerId": "956123cd-0cb7-44e7-94a6-0df689d19bf5"
+        },
+        {
+            "type": "controlleraction",
+            "reference": {
+                "name": "listeners",
+                "type": "array"
+            },
+            "codeClass": null,
+            "userConfig": {
+                "designer|controlQuery": "#PaymentDetail",
+                "designer|targetType": "PaymentDetail",
+                "fn": "onPaymentDetailActivate",
+                "implHandler": [
+                    "//scroll to top",
+                    "this.getPaymentDetail().getScrollable().getScroller().scrollTo(0, 0, false);",
+                    "",
+                    "//prepare transition",
+                    "this.getDebtDetail().setTransition();"
+                ],
+                "name": "activate"
+            },
+            "name": "onPaymentDetailActivate",
+            "designerId": "f79a77d5-c763-464c-be42-ffa8dae37804"
+        },
+        {
+            "type": "controlleraction",
+            "reference": {
+                "name": "listeners",
+                "type": "array"
+            },
+            "codeClass": null,
+            "userConfig": {
+                "designer|controlQuery": "dataview#paymentDataView",
+                "designer|targetType": "Ext.dataview.DataView",
+                "fn": "onPaymentTap",
+                "implHandler": [
+                    "//set record for the contact detail",
+                    "var paymentDetail = this.getPaymentDetail();",
+                    "",
+                    "paymentDetail.setRecord(record);",
+                    "",
+                    "//activate payment detail view",
+                    "Ext.Viewport.setActiveItem(paymentDetail);"
+                ],
+                "name": "itemtap"
+            },
+            "name": "onPaymentTap",
+            "designerId": "dcfc3f37-e533-46be-8d5a-05bfa48bfbd6"
+        },
+        {
+            "type": "controlleraction",
+            "reference": {
+                "name": "listeners",
+                "type": "array"
+            },
+            "codeClass": null,
+            "userConfig": {
+                "designer|controlQuery": "dataview#paymentDataView",
+                "designer|targetType": "Ext.dataview.DataView",
+                "fn": "onPaymentDataviewItemSwipe",
+                "implHandler": [
+                    "var nrItems = dataview.getStore().getCount(),",
+                    "    i;",
+                    "",
+                    "//activate on left swipe only",
+                    "if (e.direction === 'left') {",
+                    "    //turn off all other delete buttons in items",
+                    "    for (i = 0; i < nrItems; i++) {",
+                    "        if (i !== index) {",
+                    "            dataview.getItemAt(i).hideDeleteButton();",
+                    "        }",
+                    "    }",
+                    "    target.showDeleteButton();",
+                    "}",
+                    "",
+                    "//and deactivate on right swipe",
+                    "if (e.direction === 'right') {",
+                    "    target.hideDeleteButton();",
+                    "}"
+                ],
+                "name": "itemswipe"
+            },
+            "name": "onPaymentDataviewItemSwipe",
+            "designerId": "b525240b-dfa5-4c50-805c-2c7623162a18"
+        },
+        {
+            "type": "controlleraction",
+            "reference": {
+                "name": "listeners",
+                "type": "array"
+            },
+            "codeClass": null,
+            "userConfig": {
+                "designer|controlQuery": "#DebtDetail",
+                "designer|targetType": "DebtDetail",
+                "fn": "onDebtDetailDeactivate",
+                "implHandler": [
+                    "this.resetDeleteButtonsPaymentDataView();"
+                ],
+                "name": "deactivate"
+            },
+            "name": "onDebtDetailDeactivate",
+            "designerId": "eadf4dcc-75a4-4362-a4cd-763b5b697964"
+        },
+        {
+            "type": "controllerref",
+            "reference": {
+                "name": "items",
+                "type": "array"
+            },
+            "codeClass": null,
+            "userConfig": {
+                "ref": "paymentDataView",
+                "selector": "dataview#paymentDataView"
+            },
+            "name": "paymentDataView",
+            "designerId": "87a40f9c-6eb6-4466-8cfe-c34cb437ad6a"
+        },
+        {
+            "type": "basicfunction",
+            "reference": {
+                "name": "items",
+                "type": "array"
+            },
+            "codeClass": null,
+            "userConfig": {
+                "fn": "resetDeleteButtonsPaymentDataView",
+                "implHandler": [
+                    "//hides all delete buttons in paymentDataView",
+                    "var nrItems = this.getPaymentDataView().getStore().getCount(),",
+                    "    i;",
+                    "",
+                    "for (i = 0; i < nrItems; i++) {",
+                    "    if (this.getPaymentDataView().getItemAt(i)) {",
+                    "        this.getPaymentDataView().getItemAt(i).hideDeleteButton();",
+                    "    }",
+                    "}"
+                ]
+            },
+            "name": "resetDeleteButtonsPaymentDataView",
+            "designerId": "00f08cc9-8bbb-40bd-a2ef-98102d9dcfbd"
+        }
+    ]
+}

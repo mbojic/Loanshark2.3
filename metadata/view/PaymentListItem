@@ -1,0 +1,174 @@
+{
+    "type": "Ext.dataview.component.DataItem",
+    "reference": {
+        "name": "items",
+        "type": "array"
+    },
+    "codeClass": null,
+    "userConfig": {
+        "designer|userAlias": "PaymentListItem",
+        "designer|userClassName": "PaymentListItem",
+        "height": 64,
+        "layout": "hbox",
+        "padding": null
+    },
+    "name": "MyDataItem",
+    "designerId": "448ac907-c824-4a3e-9a26-6895624d42dc",
+    "cn": [
+        {
+            "type": "Ext.Container",
+            "reference": {
+                "name": "items",
+                "type": "array"
+            },
+            "codeClass": null,
+            "userConfig": {
+                "cls": [
+                    "loanshark-item-container"
+                ],
+                "itemId": "paymentListItemDetail",
+                "layout|flex": 1
+            },
+            "name": "MyContainer2",
+            "designerId": "e5b8cdd1-ef54-4c50-9304-86c3de877012",
+            "cn": [
+                {
+                    "type": "Ext.XTemplate",
+                    "reference": {
+                        "name": "tpl",
+                        "type": "object"
+                    },
+                    "codeClass": null,
+                    "userConfig": {
+                        "designer|displayName": "tpl",
+                        "implHandler": [
+                            "<div class=\"payment-list-item-detail\">",
+                            "    <div class=\"payment-amount\">",
+                            "        $ {[values.amount.toFixed(2)]}",
+                            "    </div>",
+                            "    <div class=\"payment-date\">",
+                            "        Paid on {[(values.date.getMonth()+1) + '/' + values.date.getDate() + '/' + values.date.getFullYear()]}",
+                            "    </div>",
+                            "</div>"
+                        ]
+                    },
+                    "name": "tpl",
+                    "designerId": "1493fe60-0ff9-4b85-a5fc-f71c25902624",
+                    "cn": [
+                        {
+                            "type": "tplscss",
+                            "reference": {
+                                "name": "items",
+                                "type": "array"
+                            },
+                            "codeClass": null,
+                            "userConfig": {
+                                "designer|displayName": "Scss Resource",
+                                "implHandler": [
+                                    "",
+                                    ".payment-list-item-detail {",
+                                    "    padding-left: 12px;",
+                                    "    padding-top: 4px;",
+                                    "    padding-bottom: 4px;",
+                                    "}",
+                                    ".payment-date {",
+                                    "    font-size: 0.7em;",
+                                    "    text-overflow:ellipsis;",
+                                    "    overflow: hidden;",
+                                    "    white-space: nowrap;",
+                                    "}",
+                                    ".payment-amount {",
+                                    "    font-size: 1.3em;",
+                                    "    text-overflow:ellipsis;",
+                                    "    overflow: hidden;",
+                                    "    white-space: nowrap;",
+                                    "}",
+                                    ""
+                                ]
+                            },
+                            "name": "scss5",
+                            "designerId": "057ec7d0-b43a-411f-b35d-4c52820c1e7d"
+                        }
+                    ]
+                },
+                {
+                    "type": "Ext.Button",
+                    "reference": {
+                        "name": "items",
+                        "type": "array"
+                    },
+                    "codeClass": null,
+                    "userConfig": {
+                        "cls": [
+                            "loanshark-item-delete-button"
+                        ],
+                        "docked": "right",
+                        "hidden": true,
+                        "hideAnimation": "popOut",
+                        "itemId": "deletePayment",
+                        "showAnimation": "pop",
+                        "text": "Delete Payment"
+                    },
+                    "name": "MyButton17",
+                    "designerId": "7c3e642d-7ddd-412e-b553-44b83772cba6"
+                }
+            ]
+        },
+        {
+            "type": "fixedfunction",
+            "reference": {
+                "name": "items",
+                "type": "array"
+            },
+            "codeClass": null,
+            "userConfig": {
+                "designer|params": [
+                    "record"
+                ],
+                "fn": "updateRecord",
+                "implHandler": [
+                    "var paymentDetail = this.child('#paymentListItemDetail');",
+                    "var deletePaymentButton = paymentDetail.child('#deletePayment');",
+                    "//put the data in the tpl",
+                    "paymentDetail.setData(record.data);",
+                    "//add record reference to the button",
+                    "deletePaymentButton.setData(record);"
+                ]
+            },
+            "name": "updateRecord",
+            "designerId": "90d59f7c-e9b3-4ca5-a3fc-68809988d189"
+        },
+        {
+            "type": "basicfunction",
+            "reference": {
+                "name": "items",
+                "type": "array"
+            },
+            "codeClass": null,
+            "userConfig": {
+                "fn": "showDeleteButton",
+                "implHandler": [
+                    "this.down('button#deletePayment').show();"
+                ]
+            },
+            "name": "showDeleteButton",
+            "designerId": "f93b5086-bf9e-4016-8e96-c4f34ce74f6b"
+        },
+        {
+            "type": "basicfunction",
+            "reference": {
+                "name": "items",
+                "type": "array"
+            },
+            "codeClass": null,
+            "userConfig": {
+                "fn": "hideDeleteButton",
+                "implHandler": [
+                    "this.down('button#deletePayment').hide();"
+                ]
+            },
+            "name": "hideDeleteButton",
+            "designerId": "8a114b45-aa5d-4bbc-a1ce-c7ebbecf80ac"
+        }
+    ]
+}

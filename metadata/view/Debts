@@ -1,0 +1,67 @@
+{
+    "type": "Ext.Panel",
+    "reference": {
+        "name": "items",
+        "type": "array"
+    },
+    "codeClass": null,
+    "userConfig": {
+        "designer|userAlias": "Debts",
+        "designer|userClassName": "Debts",
+        "id": "Debts",
+        "layout": "fit"
+    },
+    "designerId": "ee1e19ea-56fa-44e9-a8bf-33206be072fc",
+    "cn": [
+        {
+            "type": "Ext.Toolbar",
+            "reference": {
+                "name": "items",
+                "type": "array"
+            },
+            "codeClass": null,
+            "userConfig": {
+                "designer|displayName": "debtsToolbar",
+                "docked": "bottom",
+                "id": "debtsToolbar"
+            },
+            "name": "MyToolbar1",
+            "designerId": "0e764999-6790-4af7-b953-14c8184872b5",
+            "cn": [
+                {
+                    "type": "Ext.Button",
+                    "reference": {
+                        "name": "items",
+                        "type": "array"
+                    },
+                    "codeClass": null,
+                    "userConfig": {
+                        "iconCls": "icon-add-debt",
+                        "itemId": "addDebt",
+                        "text": null
+                    },
+                    "name": "MyButton1",
+                    "designerId": "a8ea0ce7-a358-4ef6-ba12-5f1490dc5ed8"
+                }
+            ]
+        },
+        {
+            "type": "Ext.dataview.DataView",
+            "reference": {
+                "name": "items",
+                "type": "array"
+            },
+            "codeClass": null,
+            "userConfig": {
+                "defaultType": "DebtListItem",
+                "id": null,
+                "itemId": "debtDataView",
+                "padding": "4 0 4 0",
+                "store": "DebtsStore",
+                "useComponents": true
+            },
+            "name": "MyDataView1",
+            "designerId": "e047cff9-e3e3-4ed4-bbcd-cc32830ad037"
+        }
+    ]
+}

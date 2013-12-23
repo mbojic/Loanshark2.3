@@ -1,0 +1,174 @@
+{
+    "type": "Ext.dataview.component.DataItem",
+    "reference": {
+        "name": "items",
+        "type": "array"
+    },
+    "codeClass": null,
+    "userConfig": {
+        "designer|userAlias": "DebtListItem",
+        "designer|userClassName": "DebtListItem",
+        "height": 64,
+        "layout": "hbox",
+        "padding": null
+    },
+    "designerId": "727ace20-dc09-4b3f-9f6e-062f44d5f14d",
+    "cn": [
+        {
+            "type": "Ext.Container",
+            "reference": {
+                "name": "items",
+                "type": "array"
+            },
+            "codeClass": null,
+            "userConfig": {
+                "cls": [
+                    "loanshark-item-container"
+                ],
+                "itemId": "debtListItemDetail",
+                "layout|flex": 1
+            },
+            "name": "MyContainer1",
+            "designerId": "d7721d4b-da8b-44c3-be10-57772a8e2e71",
+            "cn": [
+                {
+                    "type": "Ext.XTemplate",
+                    "reference": {
+                        "name": "tpl",
+                        "type": "object"
+                    },
+                    "codeClass": null,
+                    "userConfig": {
+                        "designer|displayName": "tpl",
+                        "implHandler": [
+                            "<div class=\"debt-list-item-detail\">",
+                            "    <div class=\"debt-balance\">",
+                            "        {[(values.balance <= 0)?'Paid Off':('$ ' + values.balance.toFixed(2))]}",
+                            "    </div>",
+                            "    <div class=\"debt-date-name\">",
+                            "        Owed by {[Ext.getStore('PeopleStore').getById(values.person_id).get('name');]} since {[(values.date.getMonth()+1) + '/' + values.date.getDate() + '/' + values.date.getFullYear()]}",
+                            "    </div>",
+                            "    ",
+                            "</div>"
+                        ]
+                    },
+                    "name": "tpl2",
+                    "designerId": "5c1a3551-66c3-4686-91cc-9b6a16ff02c5",
+                    "cn": [
+                        {
+                            "type": "tplscss",
+                            "reference": {
+                                "name": "items",
+                                "type": "array"
+                            },
+                            "codeClass": null,
+                            "userConfig": {
+                                "designer|displayName": "Scss Resource",
+                                "implHandler": [
+                                    "",
+                                    ".debt-list-item-detail {",
+                                    "    padding-left: 12px;",
+                                    "    padding-top: 4px;",
+                                    "    padding-bottom: 4px;",
+                                    "}",
+                                    ".debt-date-name {",
+                                    "    font-size: 0.7em;",
+                                    "    text-overflow:ellipsis;",
+                                    "    overflow: hidden;",
+                                    "    white-space: nowrap;",
+                                    "}",
+                                    ".debt-balance {",
+                                    "    font-size: 1.3em;",
+                                    "    text-overflow:ellipsis;",
+                                    "    overflow: hidden;",
+                                    "    white-space: nowrap;",
+                                    "}",
+                                    ""
+                                ]
+                            },
+                            "name": "scss4",
+                            "designerId": "6898e935-9fea-483e-8b48-8590019d9fe0"
+                        }
+                    ]
+                },
+                {
+                    "type": "Ext.Button",
+                    "reference": {
+                        "name": "items",
+                        "type": "array"
+                    },
+                    "codeClass": null,
+                    "userConfig": {
+                        "cls": [
+                            "loanshark-item-delete-button"
+                        ],
+                        "docked": "right",
+                        "hidden": true,
+                        "hideAnimation": "popOut",
+                        "itemId": "deleteDebt",
+                        "showAnimation": "pop",
+                        "text": "Delete Debt"
+                    },
+                    "name": "MyButton6",
+                    "designerId": "bcfbf8e7-f4f0-40cb-bba2-d34ea91a08bc"
+                }
+            ]
+        },
+        {
+            "type": "fixedfunction",
+            "reference": {
+                "name": "items",
+                "type": "array"
+            },
+            "codeClass": null,
+            "userConfig": {
+                "designer|params": [
+                    "record"
+                ],
+                "fn": "updateRecord",
+                "implHandler": [
+                    "var debtDetail = this.child('#debtListItemDetail');",
+                    "var deleteDebtButton = debtDetail.child('#deleteDebt');",
+                    "//put the data in the tpl",
+                    "debtDetail.setData(record.data);",
+                    "//add record reference to the button",
+                    "deleteDebtButton.setData(record);"
+                ]
+            },
+            "name": "updateRecord",
+            "designerId": "7569f155-b7df-4c1c-910f-d4a5aa750289"
+        },
+        {
+            "type": "basicfunction",
+            "reference": {
+                "name": "items",
+                "type": "array"
+            },
+            "codeClass": null,
+            "userConfig": {
+                "fn": "showDeleteButton",
+                "implHandler": [
+                    "this.down('button#deleteDebt').show();"
+                ]
+            },
+            "name": "showDeleteButton",
+            "designerId": "3f38b50f-2507-49c1-a2d1-1671f30eb304"
+        },
+        {
+            "type": "basicfunction",
+            "reference": {
+                "name": "items",
+                "type": "array"
+            },
+            "codeClass": null,
+            "userConfig": {
+                "fn": "hideDeleteButton",
+                "implHandler": [
+                    "this.down('button#deleteDebt').hide();"
+                ]
+            },
+            "name": "hideDeleteButton",
+            "designerId": "3e0e5d2a-18c6-425c-b123-b742423ce109"
+        }
+    ]
+}

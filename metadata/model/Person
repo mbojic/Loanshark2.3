@@ -1,0 +1,157 @@
+{
+    "type": "Ext.data.Model",
+    "reference": {
+        "name": "items",
+        "type": "array"
+    },
+    "codeClass": null,
+    "userConfig": {
+        "designer|userClassName": "Person",
+        "identifier": [
+            "{\"type\":\"uuid\"}"
+        ]
+    },
+    "designerId": "ac374275-cf01-45be-9707-2522a2dd2199",
+    "cn": [
+        {
+            "type": "Ext.data.Field",
+            "reference": {
+                "name": "fields",
+                "type": "array"
+            },
+            "codeClass": null,
+            "userConfig": {
+                "name": "id",
+                "type": "auto"
+            },
+            "name": "field11",
+            "designerId": "bb9454d9-1d78-4f9f-b1f9-0985d07c0a18"
+        },
+        {
+            "type": "Ext.data.Field",
+            "reference": {
+                "name": "fields",
+                "type": "array"
+            },
+            "codeClass": null,
+            "userConfig": {
+                "name": "name",
+                "sortType": null,
+                "type": "string"
+            },
+            "name": "field12",
+            "designerId": "d280339f-c21a-43d5-bc3c-0ec831c72cb2"
+        },
+        {
+            "type": "Ext.data.Field",
+            "reference": {
+                "name": "fields",
+                "type": "array"
+            },
+            "codeClass": null,
+            "userConfig": {
+                "name": "phone",
+                "type": "string"
+            },
+            "name": "field13",
+            "designerId": "8359732e-cb44-46d1-9b5d-ac36b54d3c63"
+        },
+        {
+            "type": "Ext.data.Field",
+            "reference": {
+                "name": "fields",
+                "type": "array"
+            },
+            "codeClass": null,
+            "userConfig": {
+                "name": "email",
+                "type": "string"
+            },
+            "name": "field14",
+            "designerId": "1f71a4ab-c16a-4b5b-b8ef-fd7cf898bf84"
+        },
+        {
+            "type": "Ext.data.Field",
+            "reference": {
+                "name": "fields",
+                "type": "array"
+            },
+            "codeClass": null,
+            "userConfig": {
+                "defaultValue": [
+                    "0"
+                ],
+                "name": "balance"
+            },
+            "name": "field15",
+            "designerId": "4b789f51-42cb-46dd-bf7f-4abe0e27f424"
+        },
+        {
+            "type": "Ext.data.proxy.LocalStorage",
+            "reference": {
+                "name": "proxy",
+                "type": "object"
+            },
+            "codeClass": null,
+            "userConfig": {
+                "id": "Persons"
+            },
+            "name": "MyLocalStorageProxy2",
+            "designerId": "ae0fe877-4dfb-411d-9e4c-6d16db2ee0a4"
+        },
+        {
+            "type": "basicfunction",
+            "reference": {
+                "name": "items",
+                "type": "array"
+            },
+            "codeClass": null,
+            "userConfig": {
+                "fn": "calcBalance",
+                "implHandler": [
+                    "//calculate total amount owed for all debts by the person",
+                    "var debtsStore = Ext.getStore('DebtsStore'),",
+                    "    sum;",
+                    "",
+                    "debtsStore.clearFilter();",
+                    "debtsStore.filter('person_id',this.get('id'));",
+                    "",
+                    "sum = debtsStore.sum('balance');",
+                    "",
+                    "debtsStore.clearFilter();",
+                    "",
+                    "this.set('balance', sum);"
+                ]
+            },
+            "name": "calcBalance",
+            "designerId": "a8fe5b50-746c-42ff-9378-e5fe1f33019c"
+        },
+        {
+            "type": "basicfunction",
+            "reference": {
+                "name": "items",
+                "type": "array"
+            },
+            "codeClass": null,
+            "userConfig": {
+                "fn": "cascadeDelete",
+                "implHandler": [
+                    "var debtsStore = Ext.getStore('DebtsStore');",
+                    "",
+                    "debtsStore.clearFilter();",
+                    "debtsStore.filter('person_id',this.get('id'));",
+                    "",
+                    "debtsStore.each(function(debt){",
+                    "    debt.cascadeDelete();",
+                    "});",
+                    "",
+                    "debtsStore.clearFilter();",
+                    "this.erase();",
+                    ""
+                ]
+            },
+            "name": "cascadeDelete",
+            "designerId": "faa06563-e732-4457-a04a-b05a0ef64edc"
+        }
+    ]
+}

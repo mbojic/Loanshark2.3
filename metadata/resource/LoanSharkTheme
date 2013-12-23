@@ -1,0 +1,328 @@
+{
+    "type": "defaultthemeresource",
+    "reference": {
+        "name": "items",
+        "type": "array"
+    },
+    "codeClass": null,
+    "userConfig": {
+        "designer|userClassName": "LoanSharkTheme",
+        "platform": [
+            "desktop",
+            "tablet",
+            "phone"
+        ]
+    },
+    "designerId": "3a6c9aad-f768-4b0a-bead-3820a42bdfbe",
+    "storage": {
+        "needsCompile": false,
+        "simple": {},
+        "nameIndex": 2,
+        "varData": {
+            "Ext.Button": {
+                "globalVars": [
+                    {
+                        "name": "button-gradient",
+                        "enabled": true,
+                        "value": "flat"
+                    },
+                    {
+                        "name": "button-radius",
+                        "enabled": true,
+                        "value": "0"
+                    },
+                    {
+                        "name": "include-button-highlights",
+                        "enabled": true,
+                        "value": "false"
+                    }
+                ]
+            },
+            "Ext.Class": {
+                "globalVars": [
+                    {
+                        "name": "active-color",
+                        "enabled": true,
+                        "value": "$loansharkOrange"
+                    },
+                    {
+                        "name": "alert-color",
+                        "enabled": true,
+                        "value": "rgba(150,150,150,1)"
+                    },
+                    {
+                        "name": "base-color",
+                        "enabled": true,
+                        "value": "rgba(68,68,68,1)"
+                    },
+                    {
+                        "name": "base-gradient",
+                        "enabled": true,
+                        "value": "flat"
+                    },
+                    {
+                        "name": "include-highlights",
+                        "enabled": true,
+                        "value": "false"
+                    },
+                    {
+                        "name": "page-bg-color",
+                        "enabled": true,
+                        "value": "rgba(0,0,0,1)"
+                    }
+                ]
+            },
+            "Ext.field.Field": {
+                "globalVars": [
+                    {
+                        "name": "form-field-height",
+                        "enabled": true,
+                        "value": "2.2em"
+                    }
+                ]
+            },
+            "Ext.form.FieldSet": {
+                "globalVars": [
+                    {
+                        "name": "form-fieldset-radius",
+                        "enabled": true,
+                        "value": "0"
+                    }
+                ]
+            },
+            "Ext.form.Panel": {
+                "globalVars": [
+                    {
+                        "name": "form-bg-color",
+                        "enabled": true,
+                        "value": "rgba(0,0,0,1)"
+                    },
+                    {
+                        "name": "form-dark",
+                        "enabled": true,
+                        "value": "rgba(150,150,150,1)"
+                    },
+                    {
+                        "name": "form-light",
+                        "enabled": true,
+                        "value": "rgba(0,0,0,1)"
+                    },
+                    {
+                        "name": "form-spacing",
+                        "enabled": true,
+                        "value": "0.2em"
+                    }
+                ]
+            },
+            "Ext.Toolbar": {
+                "globalVars": [
+                    {
+                        "name": "toolbar-gradient",
+                        "enabled": true,
+                        "value": "flat"
+                    }
+                ]
+            }
+        }
+    },
+    "cn": [
+        {
+            "type": "themescss",
+            "reference": {
+                "name": "items",
+                "type": "array"
+            },
+            "codeClass": null,
+            "userConfig": {
+                "designer|displayName": "Extra Variables",
+                "designer|scssplacement": "beforeVariables",
+                "implHandler": [
+                    "//extra variables",
+                    "$veryDarkGray: #1a1a1a;",
+                    "$highlightGray: #515151;",
+                    "$loansharkOrange: #FE8A28;"
+                ]
+            },
+            "name": "scss6",
+            "designerId": "c0c34aff-8667-4387-8bb4-a6da2f03600c"
+        },
+        {
+            "type": "themescss",
+            "reference": {
+                "name": "items",
+                "type": "array"
+            },
+            "codeClass": null,
+            "userConfig": {
+                "designer|displayName": "Icon Scss",
+                "implHandler": [
+                    "//icons",
+                    ".icon-back {",
+                    "    -webkit-mask-image: url(../images/icon-back.png);",
+                    "}",
+                    ".icon-save {",
+                    "    -webkit-mask-image: url(../images/icon-save.png);",
+                    "}",
+                    ".icon-email {",
+                    "    -webkit-mask-image: url(../images/icon-email.png);",
+                    "}",
+                    ".icon-add-debt {",
+                    "    -webkit-mask-image: url(../images/icon-add-debt.png);",
+                    "}",
+                    ".icon-add-contact {",
+                    "    -webkit-mask-image: url(../images/icon-add-contact.png);",
+                    "}",
+                    ".icon-home {",
+                    "    -webkit-mask-image: url(../images/icon-home.png);",
+                    "}",
+                    ".icon-debt {",
+                    "    -webkit-mask-image: url(../images/icon-debt.png);",
+                    "}",
+                    ".icon-contacts {",
+                    "    -webkit-mask-image: url(../images/icon-contacts.png);",
+                    "}",
+                    "",
+                    ".icon-back, .icon-save, .icon-email, .icon-add-debt, .icon-add-contact, .icon-home, .icon-debt, .icon-contacts {",
+                    "    background-color: lightgray;",
+                    "    -webkit-mask-size: contain;",
+                    "}"
+                ]
+            },
+            "name": "scss",
+            "designerId": "7a9b5933-14ef-48c3-8f5c-11fa46ce26fc"
+        },
+        {
+            "type": "themescss",
+            "reference": {
+                "name": "items",
+                "type": "array"
+            },
+            "codeClass": null,
+            "userConfig": {
+                "designer|displayName": "Global Scss",
+                "implHandler": [
+                    "//general overrides",
+                    ".x-button {",
+                    "    border: 0px !important;",
+                    "    background: transparent !important;",
+                    "}",
+                    ".x-button.x-button-action {",
+                    "    color: $loansharkOrange !important;",
+                    "}",
+                    ".x-tab-active::after {",
+                    "    content: ' ';",
+                    "    width: 100%;",
+                    "    height: 8px;",
+                    "    background-color: darkred;",
+                    "    bottom: 0px;",
+                    "    left: 0px;",
+                    "    display: block;",
+                    "    position: absolute;",
+                    "}",
+                    ".x-label {",
+                    "    margin: 0 10px 0 10px;",
+                    "    padding-bottom: 4px;",
+                    "    color: lightgray;",
+                    "    border-bottom: 2px solid $loansharkOrange;",
+                    "}",
+                    "//form specific",
+                    ".x-form-fieldset-inner {",
+                    "    background-color: transparent !important;",
+                    "}",
+                    ".x-form-label {",
+                    "    text-shadow: none;",
+                    "    background-color: transparent;",
+                    "    border-top-style: none !important;",
+                    "    border-bottom: 1px solid $loansharkOrange;",
+                    "}",
+                    ".x-input-el {",
+                    "    background-color: $veryDarkGray;",
+                    "    color: white;",
+                    "    -webkit-text-fill-color: white !important;",
+                    "}",
+                    ".x-clear-icon {",
+                    "    background-color: $veryDarkGray !important;",
+                    "    background-image: url(../images/clear_icon.png) !important;",
+                    "}",
+                    ".x-field-select .x-component-outer:after {",
+                    "    @include radiomark($loansharkOrange, 16px);",
+                    "}",
+                    ".x-picker-inner {",
+                    "    background-color: $veryDarkGray !important;",
+                    "    color: white;",
+                    "    .x-picker-slot {",
+                    "        border-left: 1px solid $highlightGray;",
+                    "    }",
+                    "    .x-first {",
+                    "        border-left: none;",
+                    "    }",
+                    "}",
+                    ".x-select-overlay .x-scroll-view {",
+                    "    background-color: $veryDarkGray;",
+                    "    .x-list-item, .x-item-selected {",
+                    "        color: white !important;",
+                    "        border-top-color: black;",
+                    "    }",
+                    "    .x-list-footer-wrap {",
+                    "        border-bottom-color: black !important;",
+                    "    }",
+                    "    .x-item-selected:after {",
+                    "        color: white;",
+                    "    }",
+                    "}",
+                    "//lists overrides",
+                    ".x-data-item-inner {",
+                    "    padding: 4px 10px 4px 10px;",
+                    "}",
+                    ".x-dataview-emptytext {",
+                    "    padding: 10px;",
+                    "    font-size: 1.3em;",
+                    "    color: lightgray;",
+                    "}",
+                    "",
+                    "//loanshark class specific",
+                    ".loanshark-main-tab {",
+                    "    padding: 0 !important;",
+                    "    .x-button-label {",
+                    "        display: none;",
+                    "    }",
+                    "}",
+                    ".loanshark-header-label {",
+                    "    text-align: center;",
+                    "    background-color: $loansharkOrange;",
+                    "    color: white;",
+                    "    margin: 0;",
+                    "    .sub-title {",
+                    "        font-size: 1em;",
+                    "        display: flex;",
+                    "        justify-content: center;",
+                    "    }",
+                    "    .title {",
+                    "        font-size: 2em;",
+                    "        font-weight: bold;",
+                    "        display: flex;",
+                    "        justify-content: center;",
+                    "    }",
+                    "    .sub-title:first-child, .title:first-child {",
+                    "        padding-top: 12px;",
+                    "    }",
+                    "}",
+                    ".loanshark-add-button, .loanshark-item-delete-button {",
+                    "    background-color: $highlightGray !important;",
+                    "    color: $loansharkOrange;",
+                    "    margin: 10px;",
+                    "    border-radius: 4px;",
+                    "    border: 2px solid $loansharkOrange !important;",
+                    "}",
+                    ".loanshark-item-container {",
+                    "    color: lightgray;",
+                    "    background-color: $veryDarkGray;",
+                    "    border-radius: 4px;",
+                    "}"
+                ]
+            },
+            "name": "scss1",
+            "designerId": "1f0ea8f4-8a47-4744-85ca-d38e61111d64"
+        }
+    ]
+}

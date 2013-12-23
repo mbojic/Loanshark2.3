@@ -1,0 +1,76 @@
+{
+    "type": "Ext.app.Controller",
+    "reference": {
+        "name": "items",
+        "type": "array"
+    },
+    "codeClass": null,
+    "userConfig": {
+        "designer|userClassName": "Summary",
+        "views": [
+            "Summary"
+        ]
+    },
+    "designerId": "6908f9f4-97ca-4a96-a2cd-6e2854c096ec",
+    "cn": [
+        {
+            "type": "fixedfunction",
+            "reference": {
+                "name": "items",
+                "type": "array"
+            },
+            "codeClass": null,
+            "userConfig": {
+                "fn": "launch",
+                "implHandler": [
+                    "//set up a listener so the summary is updated every time that the store is updated",
+                    "Ext.getStore('PeopleStore').on('load', function(){",
+                    "    this.updateSummaryContents();",
+                    "}, this);",
+                    "",
+                    "//and update summary right now",
+                    "this.updateSummaryContents();",
+                    ""
+                ]
+            },
+            "name": "launch",
+            "designerId": "095617d4-9d6e-4c40-914c-d1f1b17f14d5"
+        },
+        {
+            "type": "controllerref",
+            "reference": {
+                "name": "items",
+                "type": "array"
+            },
+            "codeClass": null,
+            "userConfig": {
+                "ref": "summaryContents",
+                "selector": "#summaryContents"
+            },
+            "name": "summaryContents",
+            "designerId": "a1ccd479-0dbe-4017-96a1-9ce545283186"
+        },
+        {
+            "type": "basicfunction",
+            "reference": {
+                "name": "items",
+                "type": "array"
+            },
+            "codeClass": null,
+            "userConfig": {
+                "fn": "updateSummaryContents",
+                "implHandler": [
+                    "//calculate total debt",
+                    "var totalDebt = Ext.getStore('PeopleStore').sum('balance');",
+                    "",
+                    "//update template data",
+                    "this.getSummaryContents().setData({",
+                    "    'totalDebt':totalDebt",
+                    "});"
+                ]
+            },
+            "name": "updateSummaryContents",
+            "designerId": "cc4152d2-41a3-4f28-a799-ebece0685f96"
+        }
+    ]
+}

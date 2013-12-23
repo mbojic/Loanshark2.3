@@ -1,0 +1,54 @@
+{
+    "type": "Ext.data.Store",
+    "reference": {
+        "name": "items",
+        "type": "array"
+    },
+    "codeClass": null,
+    "userConfig": {
+        "autoLoad": true,
+        "autoSync": true,
+        "designer|userClassName": "DebtsStore",
+        "groupField": "date",
+        "model": "Debt",
+        "storeId": "DebtsStore"
+    },
+    "designerId": "8606ff5a-fc83-4ebe-8414-798d34584c37",
+    "cn": [
+        {
+            "type": "Ext.util.Grouper",
+            "reference": {
+                "name": "grouper",
+                "type": "object"
+            },
+            "codeClass": null,
+            "userConfig": {
+                "designer|displayName": "dateGrouper",
+                "direction": "DESC"
+            },
+            "name": "MyGrouper",
+            "designerId": "2f49aa78-61cb-4f1f-a026-fe6b37303094",
+            "cn": [
+                {
+                    "type": "fixedfunction",
+                    "reference": {
+                        "name": "items",
+                        "type": "array"
+                    },
+                    "codeClass": null,
+                    "userConfig": {
+                        "designer|params": [
+                            "item"
+                        ],
+                        "fn": "groupFn",
+                        "implHandler": [
+                            "return item.get('date');"
+                        ]
+                    },
+                    "name": "groupFn",
+                    "designerId": "4a0af1cd-7b9a-45e1-a350-c2ee6d0df58a"
+                }
+            ]
+        }
+    ]
+}

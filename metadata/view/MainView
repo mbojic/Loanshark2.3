@@ -1,0 +1,153 @@
+{
+    "type": "Ext.tab.Panel",
+    "reference": {
+        "name": "items",
+        "type": "array"
+    },
+    "codeClass": null,
+    "userConfig": {
+        "designer|initialView": true,
+        "designer|userClassName": "MainView",
+        "hideAnimation": [
+            "{",
+            "    type: 'slideOut',",
+            "    direction: 'left'",
+            "}"
+        ],
+        "id": "MainView",
+        "showAnimation": [
+            "{",
+            "    type: 'slide',",
+            "    direction: 'right'",
+            "}"
+        ]
+    },
+    "configAlternates": {
+        "hideAnimation": "object",
+        "showAnimation": "object"
+    },
+    "designerId": "77c6fb7b-1703-4e4c-8d7e-cfd53c29f487",
+    "cn": [
+        {
+            "type": "linkedinstance",
+            "reference": {
+                "name": "items",
+                "type": "array"
+            },
+            "codeClass": null,
+            "userConfig": {
+                "itemId": "Summary",
+                "tab": [
+                    "{",
+                    "    iconCls: 'icon-home',",
+                    "    iconAlign: 'center',",
+                    "    flex: 1,",
+                    "    baseCls: 'x-button',",
+                    "    cls: 'main-tab'",
+                    "}"
+                ],
+                "title": "Summary"
+            },
+            "name": "summary4",
+            "configAlternates": {
+                "tab": "object"
+            },
+            "designerId": "dc5bd6aa-bef5-46e0-994d-15898ce7731c",
+            "customConfigs": [
+                {
+                    "group": "(Custom Properties)",
+                    "name": "tab",
+                    "type": "string"
+                }
+            ],
+            "masterInstanceId": "0b112006-bc67-4bcb-b495-b86d6beadc6a"
+        },
+        {
+            "type": "linkedinstance",
+            "reference": {
+                "name": "items",
+                "type": "array"
+            },
+            "codeClass": null,
+            "userConfig": {
+                "itemId": "Contacts",
+                "tab": [
+                    "{",
+                    "    iconCls: 'icon-contacts',",
+                    "    iconAlign: 'center',",
+                    "    flex: 1,",
+                    "    baseCls: 'x-button',",
+                    "    cls: 'main-tab'",
+                    "}"
+                ],
+                "title": "Contacts"
+            },
+            "name": "contacts4",
+            "configAlternates": {
+                "tab": "object"
+            },
+            "designerId": "d9ab8110-5737-4420-8adb-1fc8838cdde2",
+            "customConfigs": [
+                {
+                    "group": "(Custom Properties)",
+                    "name": "tab",
+                    "type": "string"
+                }
+            ],
+            "masterInstanceId": "9c9da4d1-32c7-442f-91f4-cdaceaa36108"
+        },
+        {
+            "type": "linkedinstance",
+            "reference": {
+                "name": "items",
+                "type": "array"
+            },
+            "codeClass": null,
+            "userConfig": {
+                "itemId": "Debts",
+                "tab": [
+                    "{",
+                    "    iconCls: 'icon-debt',",
+                    "    iconAlign: 'center',",
+                    "    flex: 1,",
+                    "    baseCls: 'x-button',",
+                    "    cls: 'main-tab'",
+                    "}"
+                ],
+                "title": "Debts"
+            },
+            "name": "debts4",
+            "configAlternates": {
+                "tab": "object"
+            },
+            "designerId": "d3225949-0458-4165-8f64-d0d10f95bb2f",
+            "customConfigs": [
+                {
+                    "group": "(Custom Properties)",
+                    "name": "tab",
+                    "type": "string"
+                }
+            ],
+            "masterInstanceId": "ee1e19ea-56fa-44e9-a8bf-33206be072fc"
+        },
+        {
+            "type": "Ext.tab.Bar",
+            "reference": {
+                "name": "tabBar",
+                "type": "object"
+            },
+            "codeClass": null,
+            "userConfig": {
+                "cls": [
+                    "loanshark-main-tab"
+                ],
+                "container|align": "stretchmax",
+                "designer|uiInterfaceName": "light",
+                "docked": "top",
+                "ui": "light"
+            },
+            "name": "MyTabBar",
+            "designerId": "2bf55f37-fecf-4177-b0e6-4e8f2daa158a"
+        }
+    ]
+}

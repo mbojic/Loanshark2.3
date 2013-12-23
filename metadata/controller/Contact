@@ -1,0 +1,527 @@
+{
+    "type": "Ext.app.Controller",
+    "reference": {
+        "name": "items",
+        "type": "array"
+    },
+    "codeClass": null,
+    "userConfig": {
+        "designer|userClassName": "Contact",
+        "stores": [
+            "PeopleStore"
+        ],
+        "views": [
+            "Contacts",
+            "ContactDetail"
+        ]
+    },
+    "designerId": "5142f1e9-846f-4964-9a2a-43758f666c95",
+    "cn": [
+        {
+            "type": "controlleraction",
+            "reference": {
+                "name": "listeners",
+                "type": "array"
+            },
+            "codeClass": null,
+            "userConfig": {
+                "designer|controlQuery": "#addContact",
+                "designer|targetType": "Ext.Button",
+                "fn": "onAddContactTap",
+                "implHandler": [
+                    "//reset record",
+                    "this.getContactDetail().setRecord(null);",
+                    "",
+                    "//activate contact detail view",
+                    "Ext.Viewport.setActiveItem(this.getContactDetail());"
+                ],
+                "name": "tap"
+            },
+            "name": "onAddContactTap",
+            "designerId": "6b33c26a-dac6-4941-b6d5-4cb225359748"
+        },
+        {
+            "type": "controlleraction",
+            "reference": {
+                "name": "listeners",
+                "type": "array"
+            },
+            "codeClass": null,
+            "userConfig": {
+                "designer|controlQuery": "#contactDataView #contactListItemDetail #deleteContact",
+                "designer|targetType": "Ext.Button",
+                "fn": "onDeleteContactTap",
+                "implHandler": [
+                    "//prevent event triggering onContactTap by accident",
+                    "e.stopEvent();",
+                    "",
+                    "//get the person record to delete",
+                    "var person = button.getData(),",
+                    "    peopleStore = Ext.getStore('PeopleStore'),",
+                    "    debtsStore = Ext.getStore('DebtsStore'),",
+                    "    paymentStore = Ext.getStore('PaymentStore');",
+                    "",
+                    "//make sure all delete buttons are resetted after removing a contact",
+                    "this.resetDeleteButtonsContactDataView();",
+                    "",
+                    "person.cascadeDelete();",
+                    "",
+                    "paymentStore.load();",
+                    "debtsStore.load();",
+                    "peopleStore.load();",
+                    "",
+                    ""
+                ],
+                "name": "tap"
+            },
+            "name": "onDeleteContactTap",
+            "designerId": "e7f0ca46-4148-4a0c-a005-c99748badb42"
+        },
+        {
+            "type": "controlleraction",
+            "reference": {
+                "name": "listeners",
+                "type": "array"
+            },
+            "codeClass": null,
+            "userConfig": {
+                "designer|controlQuery": "#Contacts #contactDataView",
+                "designer|targetType": "Ext.dataview.DataView",
+                "fn": "onContactTap",
+                "implHandler": [
+                    "//set record for the contact detail",
+                    "var contactDetail = this.getContactDetail(),",
+                    "    debtsStore = Ext.getStore('DebtsStore'),",
+                    "    nrItems;",
+                    "",
+                    "contactDetail.setRecord(record);",
+                    "",
+                    "//activate contact detail view",
+                    "Ext.Viewport.setActiveItem(contactDetail);"
+                ],
+                "name": "itemtap"
+            },
+            "name": "onContactTap",
+            "designerId": "2b8e9caa-2379-43e6-9537-29c5d28b0972"
+        },
+        {
+            "type": "controlleraction",
+            "reference": {
+                "name": "listeners",
+                "type": "array"
+            },
+            "codeClass": null,
+            "userConfig": {
+                "designer|controlQuery": "#cancelContact",
+                "designer|targetType": "Ext.Button",
+                "fn": "onCancelContactTap",
+                "implHandler": [
+                    "//reset form",
+                    "this.getContactDetail().reset();",
+                    "",
+                    "//reset record",
+                    "this.getContactDetail().setRecord(null);",
+                    "",
+                    "//hide dataview so refresh of the store is not visible during animation",
+                    "this.getDebtDataView().hide();",
+                    "",
+                    "//reset filter",
+                    "Ext.getStore('DebtsStore').clearFilter();",
+                    "",
+                    "//reset animation",
+                    "this.getContactDetail().resetTransition();",
+                    "",
+                    "//return to main view",
+                    "Ext.Viewport.setActiveItem(this.getMainView());"
+                ],
+                "name": "tap"
+            },
+            "name": "onCancelContactTap",
+            "designerId": "517f716b-cb42-4969-b32a-18df9c66a218"
+        },
+        {
+            "type": "controlleraction",
+            "reference": {
+                "name": "listeners",
+                "type": "array"
+            },
+            "codeClass": null,
+            "userConfig": {
+                "designer|controlQuery": "#saveContact",
+                "designer|targetType": "Ext.Button",
+                "fn": "onSaveContactTap",
+                "implHandler": [
+                    "var contactDetail = this.getContactDetail(),",
+                    "    record = contactDetail.getRecord(),",
+                    "    values = contactDetail.getValues(),",
+                    "    peopleStore = Ext.getStore('PeopleStore'),",
+                    "    debtsStore = Ext.getStore('DebtsStore');",
+                    "",
+                    "//check that at least the name is specified",
+                    "if (!values.name) {",
+                    "    //if there is no name, prompt user to enter one",
+                    "    new Ext.MessageBox().show({",
+                    "        message: 'You need to call your prey something!'",
+                    "    });",
+                    "} else {",
+                    "    //if record exists",
+                    "    if(record) {",
+                    "        //save values to the record",
+                    "        record.set(values);",
+                    "        record.calcBalance();",
+                    "        record.save();",
+                    "    } else {",
+                    "        //else create a new record",
+                    "        record = Ext.create('Payback.model.Person', values);",
+                    "        //new person has no debts, so no need to calcBalance",
+                    "        peopleStore.add(record);",
+                    "    }",
+                    "    //reset form",
+                    "    contactDetail.reset();",
+                    "    //reset record",
+                    "    contactDetail.setRecord(null);",
+                    "    //hide dataview so refresh of the store is not visible during animation",
+                    "    this.getDebtDataView().hide();",
+                    "    //clear debtsStore filter",
+                    "    debtsStore.clearFilter();",
+                    "    //reset animation",
+                    "    this.getContactDetail().resetTransition();",
+                    "    //return to main view",
+                    "    Ext.Viewport.setActiveItem(this.getMainView());",
+                    "",
+                    "    peopleStore.load();",
+                    "    debtsStore.load();",
+                    "",
+                    "    //make sure all delete buttons are resetted after adding a new contact",
+                    "    this.resetDeleteButtonsContactDataView();",
+                    "",
+                    "}"
+                ],
+                "name": "tap"
+            },
+            "name": "onSaveContactTap",
+            "designerId": "8e52643c-0904-4d16-b38d-61f89fa95174"
+        },
+        {
+            "type": "controllerref",
+            "reference": {
+                "name": "items",
+                "type": "array"
+            },
+            "codeClass": null,
+            "userConfig": {
+                "ref": "addContact",
+                "selector": "button#addContact"
+            },
+            "name": "addContact",
+            "designerId": "28da342f-2398-4dab-861b-82f3ed615155"
+        },
+        {
+            "type": "controllerref",
+            "reference": {
+                "name": "items",
+                "type": "array"
+            },
+            "codeClass": null,
+            "userConfig": {
+                "ref": "deleteContact",
+                "selector": "button#deleteContact"
+            },
+            "name": "deleteContact",
+            "designerId": "6d93b66a-80bd-48b7-9fd7-6e80883c929a"
+        },
+        {
+            "type": "controllerref",
+            "reference": {
+                "name": "items",
+                "type": "array"
+            },
+            "codeClass": null,
+            "userConfig": {
+                "ref": "cancelContact",
+                "selector": "button#cancelContact"
+            },
+            "name": "cancelContact",
+            "designerId": "858b92b7-1a47-42ff-9557-37872e6fb4db"
+        },
+        {
+            "type": "controllerref",
+            "reference": {
+                "name": "items",
+                "type": "array"
+            },
+            "codeClass": null,
+            "userConfig": {
+                "ref": "saveContact",
+                "selector": "button#saveContact"
+            },
+            "name": "saveContact",
+            "designerId": "d277e1ab-2868-48bf-bda4-39430d569ad8"
+        },
+        {
+            "type": "controllerref",
+            "reference": {
+                "name": "items",
+                "type": "array"
+            },
+            "codeClass": null,
+            "userConfig": {
+                "ref": "addDebt",
+                "selector": "#ContactDetail button#addDebt"
+            },
+            "name": "addDebt",
+            "designerId": "eba509cc-773e-4e56-8a96-b32898f2ba85"
+        },
+        {
+            "type": "controllerref",
+            "reference": {
+                "name": "items",
+                "type": "array"
+            },
+            "codeClass": null,
+            "userConfig": {
+                "ref": "contactHeaderLabel",
+                "selector": "label#contactHeaderLabel"
+            },
+            "name": "contactHeaderLabel",
+            "designerId": "e56103cb-ebf6-467d-8dd7-eea992f30e80"
+        },
+        {
+            "type": "controllerref",
+            "reference": {
+                "name": "items",
+                "type": "array"
+            },
+            "codeClass": null,
+            "userConfig": {
+                "ref": "debtHistoryLabel",
+                "selector": "label#debtHistoryLabel"
+            },
+            "name": "debtHistoryLabel",
+            "designerId": "ab78f5c6-f876-4f70-9462-3eb560ae6dad"
+        },
+        {
+            "type": "controllerref",
+            "reference": {
+                "name": "items",
+                "type": "array"
+            },
+            "codeClass": null,
+            "userConfig": {
+                "autoCreate": true,
+                "ref": "contactDetail",
+                "selector": "formpanel#ContactDetail",
+                "xtype": "ContactDetail"
+            },
+            "name": "contactDetail",
+            "designerId": "7ef0ec57-25ef-4049-afa7-d9e4ba33527c"
+        },
+        {
+            "type": "controllerref",
+            "reference": {
+                "name": "items",
+                "type": "array"
+            },
+            "codeClass": null,
+            "userConfig": {
+                "ref": "contacts",
+                "selector": "panel#Contacts"
+            },
+            "name": "contacts",
+            "designerId": "6e55b3c1-7e8e-49dc-b740-3b7113b3aaef"
+        },
+        {
+            "type": "controllerref",
+            "reference": {
+                "name": "items",
+                "type": "array"
+            },
+            "codeClass": null,
+            "userConfig": {
+                "ref": "mainView",
+                "selector": "tabpanel#MainView"
+            },
+            "name": "mainView",
+            "designerId": "6562d1dd-5140-4bd0-98c8-0ac42eed3010"
+        },
+        {
+            "type": "controlleraction",
+            "reference": {
+                "name": "listeners",
+                "type": "array"
+            },
+            "codeClass": null,
+            "userConfig": {
+                "designer|controlQuery": "#ContactDetail",
+                "designer|targetType": "ContactDetail",
+                "fn": "onContactDetailActivate",
+                "implHandler": [
+                    "var record = this.getContactDetail().getRecord();",
+                    "",
+                    "//scroll to top",
+                    "this.getContactDetail().getScrollable().getScroller().scrollTo(0, 0, false);",
+                    "",
+                    "if (record) {",
+                    "",
+                    "    //show debt history and add debt button",
+                    "    this.getDebtHistoryLabel().show();",
+                    "    this.getAddDebt().show();",
+                    "    this.getContactHeaderLabel().show();",
+                    "    this.getDebtDataView().show();",
+                    "",
+                    "    //filter the debt store to show only relevant debts",
+                    "    Ext.getStore('DebtsStore').clearFilter();",
+                    "    Ext.getStore('DebtsStore').filter(\"person_id\", record.get('id'));",
+                    "",
+                    "    this.getContactDetail().updateContactHeaderLabel();",
+                    "",
+                    "} else {",
+                    "",
+                    "    //hide contact loan history - there is none yet",
+                    "    this.getDebtHistoryLabel().hide();",
+                    "    this.getAddDebt().hide();",
+                    "    this.getContactHeaderLabel().hide();",
+                    "    this.getDebtDataView().hide();",
+                    "",
+                    "}"
+                ],
+                "name": "activate"
+            },
+            "name": "onContactDetailActivate",
+            "designerId": "ef2db402-5f63-4fb7-8116-3f7eb19cf052"
+        },
+        {
+            "type": "controllerref",
+            "reference": {
+                "name": "items",
+                "type": "array"
+            },
+            "codeClass": null,
+            "userConfig": {
+                "ref": "debtDataView",
+                "selector": "#ContactDetail dataview#debtDataView"
+            },
+            "name": "debtDataView",
+            "designerId": "010a4d3a-a875-4d52-953f-5eaebc6d96fc"
+        },
+        {
+            "type": "controlleraction",
+            "reference": {
+                "name": "listeners",
+                "type": "array"
+            },
+            "codeClass": null,
+            "userConfig": {
+                "designer|controlQuery": "dataview#contactDataView",
+                "designer|targetType": "Ext.dataview.DataView",
+                "fn": "onContactDataViewItemSwipe",
+                "implHandler": [
+                    "var nrItems = dataview.getStore().getCount(),",
+                    "    i;",
+                    "",
+                    "//activate on left swipe only",
+                    "if (e.direction === 'left') {",
+                    "    //turn off all other delete buttons in items",
+                    "    for (i = 0; i < nrItems; i++) {",
+                    "        if (i !== index) {",
+                    "            dataview.getItemAt(i).hideDeleteButton();",
+                    "        }",
+                    "    }",
+                    "    target.showDeleteButton();",
+                    "}",
+                    "",
+                    "//and deactivate on right swipe",
+                    "if (e.direction === 'right') {",
+                    "    target.hideDeleteButton();",
+                    "}"
+                ],
+                "name": "itemswipe"
+            },
+            "name": "onContactDataViewItemSwipe",
+            "designerId": "023d874f-279a-4251-9a3e-6456426525d1"
+        },
+        {
+            "type": "controllerref",
+            "reference": {
+                "name": "items",
+                "type": "array"
+            },
+            "codeClass": null,
+            "userConfig": {
+                "ref": "contactDataView",
+                "selector": "dataview#contactDataView"
+            },
+            "name": "contactDataView",
+            "designerId": "9c62bf55-5840-449b-92a3-6861901441ff"
+        },
+        {
+            "type": "basicfunction",
+            "reference": {
+                "name": "items",
+                "type": "array"
+            },
+            "codeClass": null,
+            "userConfig": {
+                "fn": "resetDeleteButtonsContactDataView",
+                "implHandler": [
+                    "//hides all delete buttons in contactDataView",
+                    "var nrItems = this.getContactDataView().getStore().getCount(),",
+                    "    i;",
+                    "",
+                    "for (i = 0; i < nrItems; i++) {",
+                    "    if (this.getContactDataView().getItemAt(i)) {",
+                    "        this.getContactDataView().getItemAt(i).hideDeleteButton();",
+                    "    }",
+                    "}"
+                ]
+            },
+            "name": "resetDeleteButtonsContactDataView",
+            "designerId": "1116b532-0744-450e-a7a2-2d8de22d672f"
+        },
+        {
+            "type": "controlleraction",
+            "reference": {
+                "name": "listeners",
+                "type": "array"
+            },
+            "codeClass": null,
+            "userConfig": {
+                "designer|controlQuery": "#MainView",
+                "designer|targetType": "MainView",
+                "fn": "onMainViewDeactivate",
+                "implHandler": [
+                    "//make sure all delete buttons are resetted after switching a view",
+                    "this.resetDeleteButtonsContactDataView();",
+                    ""
+                ],
+                "name": "deactivate"
+            },
+            "name": "onMainViewDeactivate",
+            "designerId": "9d6c28d1-2b19-4ac1-986c-fd700ebad53b"
+        },
+        {
+            "type": "controlleraction",
+            "reference": {
+                "name": "listeners",
+                "type": "array"
+            },
+            "codeClass": null,
+            "userConfig": {
+                "designer|controlQuery": "#MainView",
+                "designer|targetType": "MainView",
+                "fn": "onMainViewActiveItemChange",
+                "implHandler": [
+                    "//make sure if we go to a different tab then contacts that",
+                    "//delete buttons are resetted",
+                    "if (oldValue === this.getContacts()) {",
+                    "    this.resetDeleteButtonsContactDataView();",
+                    "}",
+                    ""
+                ],
+                "name": "activeitemchange"
+            },
+            "name": "onMainViewActiveItemChange",
+            "designerId": "c9c11cd0-8868-4fc2-ac95-964cfaf19a22"
+        }
+    ]
+}

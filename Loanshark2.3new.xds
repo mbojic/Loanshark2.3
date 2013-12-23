@@ -1,0 +1,74 @@
+{
+    "name": "Loanshark2.3new",
+    "settings": {
+        "cmd": {
+            "license": "commercial",
+            "cmdVersion": "4.0.1.45",
+            "frameworkVersion": "2.3.0.328"
+        },
+        "canvasControls": {
+            "viewportSize": {
+                "name": "iPhone",
+                "builtIn": true,
+                "height": 480,
+                "width": 320
+            },
+            "viewportOrientation": "portrait"
+        },
+        "urlPrefix": "",
+        "exportPath": "",
+        "spacesToIndent": 4,
+        "sdkPath": "",
+        "lineEnding": "LF",
+        "genTimestamps": false,
+        "cacheBust": false,
+        "buildShouldOverwriteIndex": true,
+        "generateArchitectVersion": true,
+        "lastBuildSelection": {
+            "value": "webBuild",
+            "display": "Build web app"
+        }
+    },
+    "xdsVersion": "3.0.1",
+    "xdsBuild": 1359,
+    "schemaVersion": 1,
+    "upgradeVersion": 300000000005,
+    "framework": "touch23",
+    "viewOrderMap": {
+        "view": [
+            "77c6fb7b-1703-4e4c-8d7e-cfd53c29f487",
+            "0b112006-bc67-4bcb-b495-b86d6beadc6a",
+            "9c9da4d1-32c7-442f-91f4-cdaceaa36108",
+            "ee1e19ea-56fa-44e9-a8bf-33206be072fc",
+            "b7239b49-dd8d-48d4-aa09-fc24d70a78e2",
+            "b7781e1d-1f35-4f78-bb56-f2a2fbe8fe78",
+            "d47d6df8-0e2a-439f-adfd-aca0412ca34a",
+            "a7245776-322c-4fa1-8ead-f332f5625d56",
+            "727ace20-dc09-4b3f-9f6e-062f44d5f14d",
+            "448ac907-c824-4a3e-9a26-6895624d42dc"
+        ],
+        "store": [
+            "7db2d4e0-3d5e-42ae-8861-17be64467356",
+            "8606ff5a-fc83-4ebe-8414-798d34584c37",
+            "5ca7336c-32d4-469d-9e67-9fdd8ddb28ac"
+        ],
+        "controller": [
+            "6908f9f4-97ca-4a96-a2cd-6e2854c096ec",
+            "5142f1e9-846f-4964-9a2a-43758f666c95",
+            "f55dafb1-5e7b-4806-beca-3d6a531c2dda",
+            "ee498a7b-b1b2-4ea2-b5dd-3cd476a7d02c"
+        ],
+        "model": [
+            "ac374275-cf01-45be-9707-2522a2dd2199",
+            "b51a03d2-61c4-4fc5-9df8-a961536521cc",
+            "306775ab-11c9-408a-9dcf-3151cf80b769"
+        ],
+        "resource": [
+            "226df556-9117-40c0-8618-9a57c22a090f",
+            "3a6c9aad-f768-4b0a-bead-3820a42bdfbe"
+        ],
+        "app": [
+            "application"
+        ]
+    }
+}

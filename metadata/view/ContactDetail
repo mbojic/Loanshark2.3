@@ -1,0 +1,347 @@
+{
+    "type": "Ext.form.Panel",
+    "reference": {
+        "name": "items",
+        "type": "array"
+    },
+    "codeClass": null,
+    "userConfig": {
+        "autoDestroy": false,
+        "designer|userAlias": "ContactDetail",
+        "designer|userClassName": "ContactDetail",
+        "height": "auto",
+        "hidden": true,
+        "hideAnimation": [
+            "{",
+            "    type: 'slideOut',",
+            "    direction: 'right'",
+            "}"
+        ],
+        "id": "ContactDetail",
+        "scrollable": null,
+        "showAnimation": [
+            "{",
+            "    type: 'slide',",
+            "    direction: 'left'",
+            "}"
+        ]
+    },
+    "configAlternates": {
+        "showAnimation": "object",
+        "hideAnimation": "object"
+    },
+    "designerId": "b7239b49-dd8d-48d4-aa09-fc24d70a78e2",
+    "cn": [
+        {
+            "type": "Ext.TitleBar",
+            "reference": {
+                "name": "items",
+                "type": "array"
+            },
+            "codeClass": null,
+            "userConfig": {
+                "designer|uiInterfaceName": "light",
+                "docked": "top",
+                "title": "Prey Details",
+                "ui": "light"
+            },
+            "name": "MyTitleBar",
+            "designerId": "19a9604a-82eb-4787-bcdc-58308b63520f",
+            "cn": [
+                {
+                    "type": "Ext.Button",
+                    "reference": {
+                        "name": "items",
+                        "type": "array"
+                    },
+                    "codeClass": null,
+                    "userConfig": {
+                        "iconCls": "icon-back",
+                        "id": "cancelContact",
+                        "text": null
+                    },
+                    "name": "MyButton3",
+                    "designerId": "e3033f3e-a6fc-4b77-9233-37dce57e5285"
+                }
+            ]
+        },
+        {
+            "type": "Ext.Label",
+            "reference": {
+                "name": "items",
+                "type": "array"
+            },
+            "codeClass": null,
+            "userConfig": {
+                "cls": [
+                    "loanshark-header-label"
+                ],
+                "height": 100,
+                "id": "contactHeaderLabel"
+            },
+            "name": "MyLabel",
+            "designerId": "0b2fae1f-e8bc-4b2c-9b95-a07eae599b19"
+        },
+        {
+            "type": "Ext.Button",
+            "reference": {
+                "name": "items",
+                "type": "array"
+            },
+            "codeClass": null,
+            "userConfig": {
+                "cls": [
+                    "loanshark-add-button"
+                ],
+                "id": null,
+                "itemId": "addDebt",
+                "text": "New Debt"
+            },
+            "name": "MyButton4",
+            "designerId": "9ccf64cb-04bf-45f6-826f-c1ce5ac030ea"
+        },
+        {
+            "type": "Ext.form.FieldSet",
+            "reference": {
+                "name": "items",
+                "type": "array"
+            },
+            "codeClass": null,
+            "userConfig": {
+                "designer|displayName": "detailFieldSet",
+                "title": null
+            },
+            "name": "MyFieldSet",
+            "designerId": "c8ec183e-a36a-4458-a26c-6b425f714fea",
+            "cn": [
+                {
+                    "type": "Ext.field.Text",
+                    "reference": {
+                        "name": "items",
+                        "type": "array"
+                    },
+                    "codeClass": null,
+                    "userConfig": {
+                        "label": "Name",
+                        "labelAlign": "top",
+                        "name": "name"
+                    },
+                    "name": "MyTextField",
+                    "designerId": "90b13a76-b315-42ff-a08f-424e3864c1f5"
+                },
+                {
+                    "type": "Ext.field.Email",
+                    "reference": {
+                        "name": "items",
+                        "type": "array"
+                    },
+                    "codeClass": null,
+                    "userConfig": {
+                        "label": "Email",
+                        "labelAlign": "top",
+                        "name": "email",
+                        "placeHolder": "email@example.com"
+                    },
+                    "name": "MyEmailField",
+                    "designerId": "8f3b3216-7cb4-4c96-837f-348d4938d6a8"
+                },
+                {
+                    "type": "Ext.field.Text",
+                    "reference": {
+                        "name": "items",
+                        "type": "array"
+                    },
+                    "codeClass": null,
+                    "userConfig": {
+                        "label": "Phone",
+                        "labelAlign": "top",
+                        "name": "phone"
+                    },
+                    "name": "MyTextField1",
+                    "designerId": "2e9a428e-58f0-45b5-b0f6-a2fee8bad695"
+                }
+            ]
+        },
+        {
+            "type": "Ext.Label",
+            "reference": {
+                "name": "items",
+                "type": "array"
+            },
+            "codeClass": null,
+            "userConfig": {
+                "designer|displayName": null,
+                "html": "Outstanding Debts",
+                "itemId": "debtHistoryLabel"
+            },
+            "name": "MyLabel1",
+            "designerId": "a4d271ac-92a5-4f53-be07-1eaa5ae7b039"
+        },
+        {
+            "type": "Ext.dataview.DataView",
+            "reference": {
+                "name": "items",
+                "type": "array"
+            },
+            "codeClass": null,
+            "userConfig": {
+                "defaultType": "DebtListItem",
+                "designer|displayName": null,
+                "emptyText": "No Debts",
+                "id": null,
+                "itemId": "debtDataView",
+                "minHeight": 64,
+                "padding": "4 0 4 0",
+                "scrollable": false,
+                "store": "DebtsStore",
+                "useComponents": true
+            },
+            "name": "MyDataView2",
+            "designerId": "19d6b97d-5d2b-4e41-b471-96a41ab40acc",
+            "cn": [
+                {
+                    "type": "basiceventbinding",
+                    "reference": {
+                        "name": "listeners",
+                        "type": "array"
+                    },
+                    "codeClass": null,
+                    "userConfig": {
+                        "fn": "onDebtDataViewRefresh",
+                        "implHandler": [
+                            "var nrItems = Ext.getStore('DebtsStore').getCount();",
+                            "if (nrItems > 0) {",
+                            "    dataview.setHeight(nrItems*64 + 8);",
+                            "} else {",
+                            "    dataview.setHeight(64);",
+                            "}"
+                        ],
+                        "name": "refresh"
+                    },
+                    "name": "onDebtDataViewRefresh",
+                    "designerId": "5708b62b-e829-4f6a-ae9d-f73bcc51514f"
+                }
+            ]
+        },
+        {
+            "type": "Ext.Toolbar",
+            "reference": {
+                "name": "items",
+                "type": "array"
+            },
+            "codeClass": null,
+            "userConfig": {
+                "designer|displayName": "contactDetailToolbar",
+                "docked": "bottom"
+            },
+            "name": "MyToolbar2",
+            "designerId": "9f36432b-3a83-4793-9955-7ebb70ebc649",
+            "cn": [
+                {
+                    "type": "Ext.Spacer",
+                    "reference": {
+                        "name": "items",
+                        "type": "array"
+                    },
+                    "codeClass": null,
+                    "name": "MySpacer",
+                    "designerId": "f11f18a9-c064-4e1c-9b3a-1f63a67deadf"
+                },
+                {
+                    "type": "Ext.Button",
+                    "reference": {
+                        "name": "items",
+                        "type": "array"
+                    },
+                    "codeClass": null,
+                    "userConfig": {
+                        "iconCls": "icon-save",
+                        "id": "saveContact",
+                        "text": null
+                    },
+                    "name": "MyButton5",
+                    "designerId": "575aeb00-05a4-4a00-bdb4-7d770da8985a"
+                }
+            ]
+        },
+        {
+            "type": "basicfunction",
+            "reference": {
+                "name": "items",
+                "type": "array"
+            },
+            "codeClass": null,
+            "userConfig": {
+                "fn": "updateContactHeaderLabel",
+                "implHandler": [
+                    "//updates total amount owed in the contact detail header",
+                    "var record = this.getRecord(),",
+                    "    totalDebtString,",
+                    "    subTitle;",
+                    "if (record) {",
+                    "    subTitle = record.get('name') + ' owes';",
+                    "    if (record.get('balance') === 0) {",
+                    "        totalDebtString = 'No Debts';",
+                    "    } else {",
+                    "        totalDebtString = '$ ' + ((record.get('balance')<0)?'-':'') + record.get('balance').toFixed(2);",
+                    "    }",
+                    "    this.down('#contactHeaderLabel').setHtml(",
+                    "        \"<span class='sub-title'>\" + subTitle + \"</span>\" +",
+                    "        \"<span class='title'>\" + totalDebtString + \"</span>\"",
+                    "    );",
+                    "}"
+                ]
+            },
+            "name": "updateContactHeaderLabel",
+            "designerId": "28e4c82f-c973-486f-80b8-48ebf82f3685"
+        },
+        {
+            "type": "basicfunction",
+            "reference": {
+                "name": "items",
+                "type": "array"
+            },
+            "codeClass": null,
+            "userConfig": {
+                "fn": "setTransition",
+                "implHandler": [
+                    "//sets the animation direction to follow clickthrough to debtDetail correctly",
+                    "this.setHideAnimation({",
+                    "    type: 'slideOut',",
+                    "    direction: 'left'",
+                    "});",
+                    "this.setShowAnimation({",
+                    "    type: 'slide',",
+                    "    direction: 'right'",
+                    "});"
+                ]
+            },
+            "name": "setTransition",
+            "designerId": "6c93f33c-6759-4cee-aa73-217a0f29c980"
+        },
+        {
+            "type": "basicfunction",
+            "reference": {
+                "name": "items",
+                "type": "array"
+            },
+            "codeClass": null,
+            "userConfig": {
+                "fn": "resetTransition",
+                "implHandler": [
+                    "//sets the animation direction to follow clickthrough to debtDetail correctly",
+                    "this.setHideAnimation({",
+                    "    type: 'slideOut',",
+                    "    direction: 'right'",
+                    "});",
+                    "this.setShowAnimation({",
+                    "    type: 'slide',",
+                    "    direction: 'left'",
+                    "});"
+                ]
+            },
+            "name": "resetTransition",
+            "designerId": "29551e02-aec7-4309-9be8-c0a2aa7d910a"
+        }
+    ]
+}

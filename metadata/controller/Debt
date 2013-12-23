@@ -1,0 +1,771 @@
+{
+    "type": "Ext.app.Controller",
+    "reference": {
+        "name": "items",
+        "type": "array"
+    },
+    "codeClass": null,
+    "userConfig": {
+        "designer|userClassName": "Debt",
+        "stores": [
+            "DebtsStore"
+        ],
+        "views": [
+            "Debts",
+            "DebtDetail"
+        ]
+    },
+    "designerId": "f55dafb1-5e7b-4806-beca-3d6a531c2dda",
+    "cn": [
+        {
+            "type": "controlleraction",
+            "reference": {
+                "name": "listeners",
+                "type": "array"
+            },
+            "codeClass": null,
+            "userConfig": {
+                "designer|controlQuery": "button#addDebt",
+                "designer|targetType": "Ext.Button",
+                "fn": "onAddDebtTap",
+                "implHandler": [
+                    "//reset record",
+                    "this.getDebtDetail().setRecord(null);",
+                    "",
+                    "//activate contact detail view",
+                    "Ext.Viewport.setActiveItem(this.getDebtDetail());",
+                    "",
+                    "//if we are coming from contact detail, preset the correct person",
+                    "if (this.debtDetailPredecesor === this.getContactDetail()) {",
+                    "    this.getDebtDetail().setValues({'person_id': this.getContactDetail().getRecord().get('id')});",
+                    "}"
+                ],
+                "name": "tap"
+            },
+            "name": "onAddDebtTap",
+            "designerId": "d052f9b3-4825-494a-9399-af76f803f5d7"
+        },
+        {
+            "type": "controlleraction",
+            "reference": {
+                "name": "listeners",
+                "type": "array"
+            },
+            "codeClass": null,
+            "userConfig": {
+                "designer|controlQuery": "#debtDataView #debtListItemDetail #deleteDebt",
+                "designer|targetType": "Ext.Button",
+                "fn": "onDeleteDebtTap",
+                "implHandler": [
+                    "//prevent event triggering onDebtTap by accident",
+                    "e.stopEvent();",
+                    "",
+                    "var debt = button.getData(),",
+                    "    person,",
+                    "    peopleStore = Ext.getStore('PeopleStore'),",
+                    "    debtsStore = Ext.getStore('DebtsStore'),",
+                    "    paymentStore = Ext.getStore('PaymentStore');",
+                    "",
+                    "person = peopleStore.findRecord('id', debt.get('person_id'));",
+                    "",
+                    "//if a debt is deleted inside contact detail",
+                    "if (this.getContactDetail()) {",
+                    "",
+                    "    //reset delete buttons",
+                    "    this.resetDeleteButtonsDebtDataView(true);",
+                    "",
+                    "} else {",
+                    "    //reset delete buttons",
+                    "    this.resetDeleteButtonsDebtDataView();",
+                    "}",
+                    "",
+                    "debt.cascadeDelete();",
+                    "",
+                    "paymentStore.load();",
+                    "debtsStore.load();",
+                    "",
+                    "person.calcBalance();",
+                    "",
+                    "peopleStore.load();",
+                    "",
+                    "//after stores have been reloaded, update header label and re-filter the store",
+                    "if (this.getContactDetail()) {",
+                    "    //update contact detail header",
+                    "    this.getContactDetail().updateContactHeaderLabel();",
+                    "",
+                    "    //reapply filter",
+                    "    debtsStore.filter('person_id', person.get('id'));",
+                    "}"
+                ],
+                "name": "tap"
+            },
+            "name": "onDeleteDebtTap",
+            "designerId": "0d7f1a96-96aa-471b-9097-43b3069600ea"
+        },
+        {
+            "type": "controlleraction",
+            "reference": {
+                "name": "listeners",
+                "type": "array"
+            },
+            "codeClass": null,
+            "userConfig": {
+                "designer|controlQuery": "dataview#debtDataView",
+                "designer|targetType": "Ext.dataview.DataView",
+                "fn": "onDebtTap",
+                "implHandler": [
+                    "//set record for the contact detail",
+                    "var debtDetail = this.getDebtDetail(),",
+                    "    paymentStore = Ext.getStore('PaymentStore'),",
+                    "    totalBalanceString;",
+                    "",
+                    "debtDetail.setRecord(record);",
+                    "",
+                    "//save who owned the debt before editing",
+                    "//we will have to check if this has changed when saving",
+                    "//in order to assign dependencies correctly",
+                    "this.originalDebtOwner = record.get('person_id');",
+                    "",
+                    "//filter the debt store to show only relevant debts",
+                    "paymentStore.clearFilter();",
+                    "paymentStore.filter(\"debt_id\", record.get('id'));",
+                    "",
+                    "//activate contact detail view",
+                    "Ext.Viewport.setActiveItem(debtDetail);"
+                ],
+                "name": "itemtap"
+            },
+            "name": "onDebtTap",
+            "designerId": "a580a39b-93f1-485d-ab06-78791cf40158"
+        },
+        {
+            "type": "controlleraction",
+            "reference": {
+                "name": "listeners",
+                "type": "array"
+            },
+            "codeClass": null,
+            "userConfig": {
+                "designer|controlQuery": "#cancelDebt",
+                "designer|targetType": "Ext.Button",
+                "fn": "onCancelDebtTap",
+                "implHandler": [
+                    "//reset form",
+                    "this.getDebtDetail().reset();",
+                    "",
+                    "//reset record",
+                    "this.getDebtDetail().setRecord(null);",
+                    "",
+                    "//reset animation",
+                    "this.getDebtDetail().resetTransition();",
+                    "",
+                    "//decide whether to return to mainView or ContactDetail",
+                    "if (this.debtDetailPredecesor === this.getMainView() || !this.debtDetailPredecesor) {",
+                    "    //return to main view",
+                    "    Ext.Viewport.setActiveItem(this.getMainView());",
+                    "} else if (this.debtDetailPredecesor === this.getContactDetail()) {",
+                    "    //return to contact detail",
+                    "    Ext.Viewport.setActiveItem(this.getContactDetail());",
+                    "}",
+                    "",
+                    ""
+                ],
+                "name": "tap"
+            },
+            "name": "onCancelDebtTap",
+            "designerId": "6d74154f-e13e-4be4-a945-5517eb3ffaab"
+        },
+        {
+            "type": "controlleraction",
+            "reference": {
+                "name": "listeners",
+                "type": "array"
+            },
+            "codeClass": null,
+            "userConfig": {
+                "designer|controlQuery": "#saveDebt",
+                "designer|targetType": "Ext.Button",
+                "fn": "onSaveDebtTap",
+                "implHandler": [
+                    "var debtDetail = this.getDebtDetail(),",
+                    "    record = debtDetail.getRecord(),",
+                    "    values = debtDetail.getValues(),",
+                    "    peopleStore = Ext.getStore('PeopleStore'),",
+                    "    debtsStore = Ext.getStore('DebtsStore'),",
+                    "    personNew = peopleStore.findRecord('id', values.person_id),",
+                    "    personOld;",
+                    "",
+                    "//set personOld if possible",
+                    "if (record) {",
+                    "    personOld = peopleStore.findRecord('id', record.get('person_id'));",
+                    "}",
+                    "",
+                    "//check that at least the name is specified",
+                    "if (!values.date || !values.amount) {",
+                    "    new Ext.MessageBox().show({",
+                    "        message: 'A loan should have a date and an amount!'",
+                    "    });",
+                    "//don't allow 0 or negative debts",
+                    "} else if (values.amount <= 0) {",
+                    "    new Ext.MessageBox().show({",
+                    "        message: 'A loan should be a positive amount!'",
+                    "    });",
+                    "//if a debt is being modified, balance is not allowed to go negative",
+                    "} else if (record && values.amount < record.get('balance')) {",
+                    "    new Ext.MessageBox().show({",
+                    "        message: 'This debt already has $ ' + record.get('balance') + ' in payments. You cannot set it lower than that.'",
+                    "    });",
+                    "} else {",
+                    "    //check if owner was modified",
+                    "    if(personOld && personNew !== personOld) {",
+                    "        //in this case remove the record and recreate it with the new owner",
+                    "        debtsStore.remove(record);",
+                    "        record = Ext.create('Payback.model.Debt', values);",
+                    "        record.calcBalance();",
+                    "        debtsStore.add(record);",
+                    "    } else if(record) {",
+                    "        //save values to the record",
+                    "        record.set(values);",
+                    "        record.calcBalance();",
+                    "        record.save();",
+                    "    } else {",
+                    "        //else create a new record",
+                    "        record = Ext.create('Payback.model.Debt', values);",
+                    "        record.calcBalance();",
+                    "        debtsStore.add(record);",
+                    "    }",
+                    "",
+                    "    //update person balance",
+                    "    personNew.calcBalance();",
+                    "    //update old person balance if necessary",
+                    "    if (personOld && personNew !== personOld) {",
+                    "        personOld.calcBalance();",
+                    "    }",
+                    "",
+                    "    //reset form",
+                    "    debtDetail.reset();",
+                    "    //reset record",
+                    "    debtDetail.setRecord(null);",
+                    "",
+                    "    //reset animation",
+                    "    this.getDebtDetail().resetTransition();",
+                    "",
+                    "    //decide whether to return to mainView or ContactDetail",
+                    "    if (this.debtDetailPredecesor === this.getMainView() || !this.debtDetailPredecesor) {",
+                    "        //return to main view",
+                    "        Ext.Viewport.setActiveItem(this.getMainView());",
+                    "    } else if (this.debtDetailPredecesor === this.getContactDetail()) {",
+                    "        //return to contact detail",
+                    "        Ext.Viewport.setActiveItem(this.getContactDetail());",
+                    "    }",
+                    "",
+                    "    debtsStore.load();",
+                    "    peopleStore.load();",
+                    "}"
+                ],
+                "name": "tap"
+            },
+            "name": "onSaveDebtTap",
+            "designerId": "43b5da1d-20ef-4c43-9305-6566586456d1"
+        },
+        {
+            "type": "controlleraction",
+            "reference": {
+                "name": "listeners",
+                "type": "array"
+            },
+            "codeClass": null,
+            "userConfig": {
+                "designer|controlQuery": "button#emailDebt",
+                "designer|targetType": "Ext.Button",
+                "fn": "onEmailTap",
+                "implHandler": [
+                    "var record = this.getDebtDetail().getRecord(),",
+                    "    person = Ext.getStore('PeopleStore').findRecord('id', record.get('person_id')),",
+                    "    subject = encodeURIComponent(\"Where's my money?!\"),",
+                    "    body;",
+                    "",
+                    "//if debt is paid off, set up a friendly message",
+                    "if (record.get('balance') === 0) {",
+                    "    body = encodeURIComponent(\"Dear \" + person.get('name') + \",\" +",
+                    "                              \"\\n\\nJust joking - you paid off your debt of $ \" + record.get('amount').toFixed(2) + ' fully.' +",
+                    "                              \"\\n\\nNice doing business with you. Always happy to lend you more again.\" +",
+                    "                              \"\\n\\nSincerely,\" +",
+                    "                              \"\\n\\nYour friendly neighborhood loanshark\");",
+                    "//otherwise a threatening one",
+                    "} else {",
+                    "    body = encodeURIComponent(\"Dear \" + person.get('name') + \",\" +",
+                    "                              \"\\n\\nYou still owe me $ \" + record.get('balance').toFixed(2) +",
+                    "                              \" of $ \" + record.get('amount').toFixed(2) + \" that you borrowed from me on \" + (record.get('date').getMonth()+1) + \"/\" + (record.get('date').getDate()) + \".\" +",
+                    "                              \"\\n\\nPay soon or my friend Li'l Abe will come pay you a visit.\" +",
+                    "                              \"\\n\\nSincerely,\" +",
+                    "                              \"\\n\\nYour friendly neighborhood loanshark\");",
+                    "}",
+                    "",
+                    "",
+                    "window.location.href = \"mailto:\"+person.get('email')+\"?subject=\"+subject+\"&body=\"+body;",
+                    ""
+                ],
+                "name": "tap"
+            },
+            "name": "onEmailTap",
+            "designerId": "78e4ba22-8faa-4d8a-adda-7cbaac376f2f"
+        },
+        {
+            "type": "controlleraction",
+            "reference": {
+                "name": "listeners",
+                "type": "array"
+            },
+            "codeClass": null,
+            "userConfig": {
+                "designer|controlQuery": "#MainView",
+                "designer|targetType": "MainView",
+                "fn": "onMainViewActiveItemChange",
+                "implHandler": [
+                    "var peopleStore = Ext.getStore('PeopleStore');",
+                    "",
+                    "//enable addDebt button only if there is a contact",
+                    "//you cannot add debts that aren't assigned to someone",
+                    "if (value.id==='Debts') {",
+                    "    if (peopleStore.getCount() <= 0) {",
+                    "        this.getAddDebt().disable();",
+                    "    } else {",
+                    "        this.getAddDebt().enable();",
+                    "    }",
+                    "}",
+                    "",
+                    "//make sure if we go to a different tab then contacts that",
+                    "//delete buttons are resetted",
+                    "if (oldValue === this.getDebts()) {",
+                    "    this.resetDeleteButtonsDebtDataView();",
+                    "}",
+                    ""
+                ],
+                "name": "activeitemchange"
+            },
+            "name": "onMainViewActiveItemChange",
+            "designerId": "1988e8b2-49db-4144-9ce7-1c2df667e197"
+        },
+        {
+            "type": "controllerref",
+            "reference": {
+                "name": "items",
+                "type": "array"
+            },
+            "codeClass": null,
+            "userConfig": {
+                "ref": "addDebt",
+                "selector": "button#addDebt"
+            },
+            "name": "addDebt",
+            "designerId": "bcb6d234-5663-4faf-9a9b-9218a6384ebc"
+        },
+        {
+            "type": "controllerref",
+            "reference": {
+                "name": "items",
+                "type": "array"
+            },
+            "codeClass": null,
+            "userConfig": {
+                "ref": "deleteDebt",
+                "selector": "button#deleteDebt"
+            },
+            "name": "deleteDebt",
+            "designerId": "9ca22efe-5088-4962-8385-328f9adbb956"
+        },
+        {
+            "type": "controllerref",
+            "reference": {
+                "name": "items",
+                "type": "array"
+            },
+            "codeClass": null,
+            "userConfig": {
+                "ref": "cancelDebt",
+                "selector": "button#cancelDebt"
+            },
+            "name": "cancelDebt",
+            "designerId": "2b41df8b-53d2-429b-9659-833b8554aa68"
+        },
+        {
+            "type": "controllerref",
+            "reference": {
+                "name": "items",
+                "type": "array"
+            },
+            "codeClass": null,
+            "userConfig": {
+                "ref": "emailDebt",
+                "selector": "button#emailDebt"
+            },
+            "name": "emailDebt",
+            "designerId": "75346ede-8ae2-48e3-86b1-f3532679b00e"
+        },
+        {
+            "type": "controllerref",
+            "reference": {
+                "name": "items",
+                "type": "array"
+            },
+            "codeClass": null,
+            "userConfig": {
+                "ref": "saveDebt",
+                "selector": "button#saveDebt"
+            },
+            "name": "saveDebt",
+            "designerId": "c1564c48-076c-4049-a3e7-629b3c3be5dd"
+        },
+        {
+            "type": "controllerref",
+            "reference": {
+                "name": "items",
+                "type": "array"
+            },
+            "codeClass": null,
+            "userConfig": {
+                "ref": "addPayment",
+                "selector": "button#addPayment"
+            },
+            "name": "addPayment",
+            "designerId": "0477d689-61b9-4dde-9150-aa13f3c8e34e"
+        },
+        {
+            "type": "controllerref",
+            "reference": {
+                "name": "items",
+                "type": "array"
+            },
+            "codeClass": null,
+            "userConfig": {
+                "ref": "contactName",
+                "selector": "selectfield#preySelectField"
+            },
+            "name": "contactName",
+            "designerId": "100c7ab3-fcac-4280-9e74-997560314bdb"
+        },
+        {
+            "type": "controllerref",
+            "reference": {
+                "name": "items",
+                "type": "array"
+            },
+            "codeClass": null,
+            "userConfig": {
+                "ref": "debtHeaderLabel",
+                "selector": "label#debtHeaderLabel"
+            },
+            "name": "debtHeaderLabel",
+            "designerId": "13b83301-36f5-4742-91ba-8ef10cecb708"
+        },
+        {
+            "type": "controllerref",
+            "reference": {
+                "name": "items",
+                "type": "array"
+            },
+            "codeClass": null,
+            "userConfig": {
+                "ref": "paymentHistoryLabel",
+                "selector": "label#paymentHistoryLabel"
+            },
+            "name": "paymentHistoryLabel",
+            "designerId": "29010f47-175c-4aaf-9dd7-a4ae448e2951"
+        },
+        {
+            "type": "controllerref",
+            "reference": {
+                "name": "items",
+                "type": "array"
+            },
+            "codeClass": null,
+            "userConfig": {
+                "ref": "paymentDataView",
+                "selector": "dataview#paymentDataView"
+            },
+            "name": "paymentDataView",
+            "designerId": "23ba464c-ed6d-4175-ab0f-7accbb581206"
+        },
+        {
+            "type": "controllerref",
+            "reference": {
+                "name": "items",
+                "type": "array"
+            },
+            "codeClass": null,
+            "userConfig": {
+                "autoCreate": true,
+                "ref": "debtDetail",
+                "selector": "formpanel#DebtDetail",
+                "xtype": "DebtDetail"
+            },
+            "name": "debtDetail",
+            "designerId": "41d35526-9e6c-43f1-9710-daa266e290be"
+        },
+        {
+            "type": "controllerref",
+            "reference": {
+                "name": "items",
+                "type": "array"
+            },
+            "codeClass": null,
+            "userConfig": {
+                "ref": "contactDetail",
+                "selector": "formpanel#ContactDetail"
+            },
+            "name": "contactDetail",
+            "designerId": "6482e12b-c6c8-418c-a991-14b621eb79b8"
+        },
+        {
+            "type": "controllerref",
+            "reference": {
+                "name": "items",
+                "type": "array"
+            },
+            "codeClass": null,
+            "userConfig": {
+                "ref": "paymentDetail",
+                "selector": "formpanel#PaymentDetail"
+            },
+            "name": "paymentDetail",
+            "designerId": "dce38bb9-62f6-4e3e-b081-b59048ee73a3"
+        },
+        {
+            "type": "controllerref",
+            "reference": {
+                "name": "items",
+                "type": "array"
+            },
+            "codeClass": null,
+            "userConfig": {
+                "ref": "mainView",
+                "selector": "tabpanel#MainView"
+            },
+            "name": "mainView",
+            "designerId": "13be12f5-13e9-4899-8b32-5cd148fd6ac4"
+        },
+        {
+            "type": "controlleraction",
+            "reference": {
+                "name": "listeners",
+                "type": "array"
+            },
+            "codeClass": null,
+            "userConfig": {
+                "designer|controlQuery": "#DebtDetail",
+                "designer|targetType": "DebtDetail",
+                "fn": "onDebtDetailActivate",
+                "implHandler": [
+                    "var record = this.getDebtDetail().getRecord();",
+                    "",
+                    "//scroll to top",
+                    "this.getDebtDetail().getScrollable().getScroller().scrollTo(0, 0, false);",
+                    "",
+                    "if (record) {",
+                    "",
+                    "    //show payment history and add payment button",
+                    "    this.getPaymentHistoryLabel().show();",
+                    "    this.getPaymentDataView().show();",
+                    "",
+                    "    //show payment button if debt is not paid off",
+                    "    if (record.get('balance') > 0) {",
+                    "        this.getAddPayment().show();",
+                    "    } else {",
+                    "        this.getAddPayment().hide();",
+                    "    }",
+                    "    this.getDebtHeaderLabel().show();",
+                    "    this.getEmailDebt().show();",
+                    "",
+                    "    //filter the debt store to show only relevant debts",
+                    "    Ext.getStore('PaymentStore').clearFilter();",
+                    "    Ext.getStore('PaymentStore').filter(\"debt_id\", record.get('id'));",
+                    "",
+                    "    //update header label",
+                    "    this.getDebtDetail().updateDebtHeaderLabel();",
+                    "",
+                    "} else {",
+                    "    //hide payment history - there is none yet",
+                    "    this.getPaymentHistoryLabel().hide();",
+                    "    this.getPaymentDataView().hide();",
+                    "    this.getAddPayment().hide();",
+                    "    this.getDebtHeaderLabel().hide();",
+                    "    this.getEmailDebt().hide();",
+                    "}",
+                    "",
+                    "//save breadcrumbs (previous view so we can return to it)",
+                    "//if we're coming from payment detail, don't set the predecesor",
+                    "if (oldActiveItem !== this.getPaymentDetail()) {",
+                    "    this.debtDetailPredecesor = oldActiveItem;",
+                    "}",
+                    "",
+                    "if (this.debtDetailPredecesor === this.getContactDetail()) {",
+                    "    //prepare transition in case a debtDetail is tapped",
+                    "    this.getContactDetail().setTransition();",
+                    "}",
+                    ""
+                ],
+                "name": "activate"
+            },
+            "name": "onDebtDetailActivate",
+            "designerId": "0f51685b-bdfc-41c0-ab00-50a0787c63ce"
+        },
+        {
+            "type": "controlleraction",
+            "reference": {
+                "name": "listeners",
+                "type": "array"
+            },
+            "codeClass": null,
+            "userConfig": {
+                "designer|controlQuery": "dataview#debtDataView",
+                "designer|targetType": "Ext.dataview.DataView",
+                "fn": "onDebtDataviewItemSwipe",
+                "implHandler": [
+                    "var nrItems = dataview.getStore().getCount(),",
+                    "    i;",
+                    "",
+                    "//activate on left swipe only",
+                    "if (e.direction === 'left') {",
+                    "    //turn off all other delete buttons in items",
+                    "    for (i = 0; i < nrItems; i++) {",
+                    "        if (i !== index) {",
+                    "            dataview.getItemAt(i).hideDeleteButton();",
+                    "        }",
+                    "    }",
+                    "    target.showDeleteButton();",
+                    "}",
+                    "",
+                    "//and deactivate on right swipe",
+                    "if (e.direction === 'right') {",
+                    "    target.hideDeleteButton();",
+                    "}"
+                ],
+                "name": "itemswipe"
+            },
+            "name": "onDebtDataviewItemSwipe",
+            "designerId": "8332d416-30d8-4746-9e93-9a5b42e0bcb4"
+        },
+        {
+            "type": "controllerref",
+            "reference": {
+                "name": "items",
+                "type": "array"
+            },
+            "codeClass": null,
+            "userConfig": {
+                "ref": "debts",
+                "selector": "panel#Debts"
+            },
+            "name": "debts",
+            "designerId": "d7688c43-90f5-48f7-a146-4a68a6f83b9f"
+        },
+        {
+            "type": "controllerref",
+            "reference": {
+                "name": "items",
+                "type": "array"
+            },
+            "codeClass": null,
+            "userConfig": {
+                "ref": "debtDataView",
+                "selector": "dataview#debtDataView"
+            },
+            "name": "debtDataView",
+            "designerId": "f03179d1-be6e-4d1e-b77d-c42b7130d44c"
+        },
+        {
+            "type": "controllerref",
+            "reference": {
+                "name": "items",
+                "type": "array"
+            },
+            "codeClass": null,
+            "userConfig": {
+                "ref": "contactDetailDebtDataView",
+                "selector": "#ContactDetail dataview#debtDataView"
+            },
+            "name": "contactDetailDebtDataView",
+            "designerId": "1cbf5665-b1a4-413d-98c4-dcddfe4f7349"
+        },
+        {
+            "type": "basicfunction",
+            "reference": {
+                "name": "items",
+                "type": "array"
+            },
+            "codeClass": null,
+            "userConfig": {
+                "designer|params": [
+                    "contactDetail"
+                ],
+                "fn": "resetDeleteButtonsDebtDataView",
+                "implHandler": [
+                    "//hides all delete buttons in debtDataView",
+                    "var nrItems,",
+                    "    dataview,",
+                    "    i;",
+                    "",
+                    "if (contactDetail) {",
+                    "    dataview = this.getContactDetailDebtDataView();",
+                    "",
+                    "} else {",
+                    "    dataview = this.getDebtDataView();",
+                    "}",
+                    "",
+                    "nrItems = dataview.getStore().getCount();",
+                    "",
+                    "for (i = 0; i < nrItems; i++) {",
+                    "    if (dataview.getItemAt(i)) {",
+                    "        dataview.getItemAt(i).hideDeleteButton();",
+                    "    }",
+                    "}"
+                ]
+            },
+            "name": "resetDeleteButtonsDebtDataView",
+            "designerId": "bdec1e05-16f6-4c9e-ac84-eccb46460240"
+        },
+        {
+            "type": "controlleraction",
+            "reference": {
+                "name": "listeners",
+                "type": "array"
+            },
+            "codeClass": null,
+            "userConfig": {
+                "designer|controlQuery": "#ContactDetail",
+                "designer|targetType": "ContactDetail",
+                "fn": "onContactDetailDeactivate",
+                "implHandler": [
+                    "//make sure all delete buttons are resetted after switching a view",
+                    "this.resetDeleteButtonsDebtDataView(true);",
+                    ""
+                ],
+                "name": "deactivate"
+            },
+            "name": "onContactDetailDeactivate",
+            "designerId": "613f3fbc-dcee-418f-a2ea-1eb6a84bf820"
+        },
+        {
+            "type": "controlleraction",
+            "reference": {
+                "name": "listeners",
+                "type": "array"
+            },
+            "codeClass": null,
+            "userConfig": {
+                "designer|controlQuery": "#MainView",
+                "designer|targetType": "MainView",
+                "fn": "onMainViewDeactivate",
+                "implHandler": [
+                    "//make sure all delete buttons are resetted after switching a view",
+                    "this.resetDeleteButtonsDebtDataView();",
+                    ""
+                ],
+                "name": "deactivate"
+            },
+            "name": "onMainViewDeactivate",
+            "designerId": "5a80f56d-3a57-4915-9340-5ced70aea84f"
+        }
+    ]
+}

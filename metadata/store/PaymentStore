@@ -1,0 +1,55 @@
+{
+    "type": "Ext.data.Store",
+    "reference": {
+        "name": "items",
+        "type": "array"
+    },
+    "codeClass": null,
+    "userConfig": {
+        "autoLoad": true,
+        "autoSync": true,
+        "designer|userClassName": "PaymentStore",
+        "groupDir": null,
+        "groupField": null,
+        "model": "Payment",
+        "storeId": "PaymentStore"
+    },
+    "designerId": "5ca7336c-32d4-469d-9e67-9fdd8ddb28ac",
+    "cn": [
+        {
+            "type": "Ext.util.Grouper",
+            "reference": {
+                "name": "grouper",
+                "type": "object"
+            },
+            "codeClass": null,
+            "userConfig": {
+                "designer|displayName": "dateGrouper",
+                "direction": "DESC"
+            },
+            "name": "MyGrouper1",
+            "designerId": "7b06ff42-78b5-42a4-a778-a85b4a031d3c",
+            "cn": [
+                {
+                    "type": "fixedfunction",
+                    "reference": {
+                        "name": "items",
+                        "type": "array"
+                    },
+                    "codeClass": null,
+                    "userConfig": {
+                        "designer|params": [
+                            "item"
+                        ],
+                        "fn": "groupFn",
+                        "implHandler": [
+                            "return item.get('date');"
+                        ]
+                    },
+                    "name": "groupFn",
+                    "designerId": "742435f8-1b39-4b8d-ba32-c4bb95c80ecf"
+                }
+            ]
+        }
+    ]
+}

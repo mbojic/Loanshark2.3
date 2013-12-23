@@ -1,0 +1,96 @@
+{
+    "type": "Ext.Container",
+    "reference": {
+        "name": "items",
+        "type": "array"
+    },
+    "codeClass": null,
+    "userConfig": {
+        "designer|userAlias": "Summary",
+        "designer|userClassName": "Summary",
+        "id": "SummaryView",
+        "layout": "fit",
+        "scrollable": null
+    },
+    "designerId": "0b112006-bc67-4bcb-b495-b86d6beadc6a",
+    "cn": [
+        {
+            "type": "Ext.Img",
+            "reference": {
+                "name": "items",
+                "type": "array"
+            },
+            "codeClass": null,
+            "userConfig": {
+                "designer|displayName": "sharkyImage",
+                "src": "resources/images/sharky.png"
+            },
+            "name": "MyImg",
+            "designerId": "d8b0e756-000d-4a40-a891-ae1c1d81de61"
+        },
+        {
+            "type": "Ext.Component",
+            "reference": {
+                "name": "items",
+                "type": "array"
+            },
+            "codeClass": null,
+            "userConfig": {
+                "cls": [
+                    "tpl-2z95517n"
+                ],
+                "docked": "bottom",
+                "id": "summaryContents"
+            },
+            "name": "MyComponent",
+            "designerId": "1aa5f51b-0d97-4835-bb05-44082788c03c",
+            "cn": [
+                {
+                    "type": "Ext.XTemplate",
+                    "reference": {
+                        "name": "tpl",
+                        "type": "object"
+                    },
+                    "codeClass": null,
+                    "userConfig": {
+                        "designer|displayName": "tpl",
+                        "implHandler": [
+                            "<div class=\"summary-contents\">",
+                            "    You're Owed: $ {[((values.totalDebt < 0)? '- ':'')]} {[values.totalDebt.toFixed(2)]}",
+                            "</div>"
+                        ]
+                    },
+                    "name": "tpl",
+                    "designerId": "9c9d63fa-9134-42f3-9836-99c5def997c8",
+                    "cn": [
+                        {
+                            "type": "tplscss",
+                            "reference": {
+                                "name": "items",
+                                "type": "array"
+                            },
+                            "codeClass": null,
+                            "userConfig": {
+                                "designer|displayName": "Scss Resource",
+                                "implHandler": [
+                                    ".summary-contents {",
+                                    "    width: 100%;",
+                                    "    line-height: 2em;",
+                                    "    font-size: 1.5em;",
+                                    "    font-weight: bold;",
+                                    "    text-align: center;",
+                                    "    color: lightgray;",
+                                    "    padding-bottom: 0.5em;",
+                                    "}",
+                                    ""
+                                ]
+                            },
+                            "name": "scss2",
+                            "designerId": "ecf95029-4235-470e-94e0-e4e28217c711"
+                        }
+                    ]
+                }
+            ]
+        }
+    ]
+}
