@@ -25,7 +25,6 @@
                 "designer|displayName": "sharkyImage",
                 "src": "resources/images/sharky.png"
             },
-            "name": "MyImg",
             "designerId": "d8b0e756-000d-4a40-a891-ae1c1d81de61"
         },
         {
@@ -42,7 +41,6 @@
                 "docked": "bottom",
                 "id": "summaryContents"
             },
-            "name": "MyComponent",
             "designerId": "1aa5f51b-0d97-4835-bb05-44082788c03c",
             "cn": [
                 {
@@ -60,7 +58,6 @@
                             "</div>"
                         ]
                     },
-                    "name": "tpl",
                     "designerId": "9c9d63fa-9134-42f3-9836-99c5def997c8",
                     "cn": [
                         {
@@ -75,17 +72,17 @@
                                 "implHandler": [
                                     ".summary-contents {",
                                     "    width: 100%;",
-                                    "    line-height: 2em;",
+                                    "    line-height: 2.5em;",
                                     "    font-size: 1.5em;",
                                     "    font-weight: bold;",
                                     "    text-align: center;",
-                                    "    color: lightgray;",
-                                    "    padding-bottom: 0.5em;",
+                                    "    color: fade-out(black, 0.5);",
+                                    "    background-color: $loansharkRed;",
+                                    "    padding: 0;",
                                     "}",
                                     ""
                                 ]
                             },
-                            "name": "scss2",
                             "designerId": "ecf95029-4235-470e-94e0-e4e28217c711"
                         }
                     ]

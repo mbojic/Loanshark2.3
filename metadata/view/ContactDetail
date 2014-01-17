@@ -9,7 +9,7 @@
         "autoDestroy": false,
         "designer|userAlias": "ContactDetail",
         "designer|userClassName": "ContactDetail",
-        "height": "auto",
+        "height": null,
         "hidden": true,
         "hideAnimation": [
             "{",
@@ -18,6 +18,7 @@
             "}"
         ],
         "id": "ContactDetail",
+        "layout": "vbox",
         "scrollable": null,
         "showAnimation": [
             "{",
@@ -45,7 +46,6 @@
                 "title": "Prey Details",
                 "ui": "light"
             },
-            "name": "MyTitleBar",
             "designerId": "19a9604a-82eb-4787-bcdc-58308b63520f",
             "cn": [
                 {
@@ -60,7 +60,6 @@
                         "id": "cancelContact",
                         "text": null
                     },
-                    "name": "MyButton3",
                     "designerId": "e3033f3e-a6fc-4b77-9233-37dce57e5285"
                 }
             ]
@@ -79,7 +78,6 @@
                 "height": 100,
                 "id": "contactHeaderLabel"
             },
-            "name": "MyLabel",
             "designerId": "0b2fae1f-e8bc-4b2c-9b95-a07eae599b19"
         },
         {
@@ -90,14 +88,16 @@
             },
             "codeClass": null,
             "userConfig": {
+                "centered": null,
                 "cls": [
                     "loanshark-add-button"
                 ],
+                "height": "3em",
                 "id": null,
                 "itemId": "addDebt",
+                "margin": "1em",
                 "text": "New Debt"
             },
-            "name": "MyButton4",
             "designerId": "9ccf64cb-04bf-45f6-826f-c1ce5ac030ea"
         },
         {
@@ -111,7 +111,6 @@
                 "designer|displayName": "detailFieldSet",
                 "title": null
             },
-            "name": "MyFieldSet",
             "designerId": "c8ec183e-a36a-4458-a26c-6b425f714fea",
             "cn": [
                 {
@@ -126,7 +125,6 @@
                         "labelAlign": "top",
                         "name": "name"
                     },
-                    "name": "MyTextField",
                     "designerId": "90b13a76-b315-42ff-a08f-424e3864c1f5"
                 },
                 {
@@ -142,7 +140,6 @@
                         "name": "email",
                         "placeHolder": "email@example.com"
                     },
-                    "name": "MyEmailField",
                     "designerId": "8f3b3216-7cb4-4c96-837f-348d4938d6a8"
                 },
                 {
@@ -157,7 +154,6 @@
                         "labelAlign": "top",
                         "name": "phone"
                     },
-                    "name": "MyTextField1",
                     "designerId": "2e9a428e-58f0-45b5-b0f6-a2fee8bad695"
                 }
             ]
@@ -174,7 +170,6 @@
                 "html": "Outstanding Debts",
                 "itemId": "debtHistoryLabel"
             },
-            "name": "MyLabel1",
             "designerId": "a4d271ac-92a5-4f53-be07-1eaa5ae7b039"
         },
         {
@@ -196,7 +191,6 @@
                 "store": "DebtsStore",
                 "useComponents": true
             },
-            "name": "MyDataView2",
             "designerId": "19d6b97d-5d2b-4e41-b471-96a41ab40acc",
             "cn": [
                 {
@@ -218,7 +212,6 @@
                         ],
                         "name": "refresh"
                     },
-                    "name": "onDebtDataViewRefresh",
                     "designerId": "5708b62b-e829-4f6a-ae9d-f73bcc51514f"
                 }
             ]
@@ -234,7 +227,6 @@
                 "designer|displayName": "contactDetailToolbar",
                 "docked": "bottom"
             },
-            "name": "MyToolbar2",
             "designerId": "9f36432b-3a83-4793-9955-7ebb70ebc649",
             "cn": [
                 {
@@ -244,7 +236,6 @@
                         "type": "array"
                     },
                     "codeClass": null,
-                    "name": "MySpacer",
                     "designerId": "f11f18a9-c064-4e1c-9b3a-1f63a67deadf"
                 },
                 {
@@ -259,7 +250,6 @@
                         "id": "saveContact",
                         "text": null
                     },
-                    "name": "MyButton5",
                     "designerId": "575aeb00-05a4-4a00-bdb4-7d770da8985a"
                 }
             ]
@@ -292,7 +282,6 @@
                     "}"
                 ]
             },
-            "name": "updateContactHeaderLabel",
             "designerId": "28e4c82f-c973-486f-80b8-48ebf82f3685"
         },
         {
@@ -316,7 +305,6 @@
                     "});"
                 ]
             },
-            "name": "setTransition",
             "designerId": "6c93f33c-6759-4cee-aa73-217a0f29c980"
         },
         {
@@ -340,7 +328,6 @@
                     "});"
                 ]
             },
-            "name": "resetTransition",
             "designerId": "29551e02-aec7-4309-9be8-c0a2aa7d910a"
         }
     ]

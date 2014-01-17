@@ -28,7 +28,6 @@
                 "itemId": "debtListItemDetail",
                 "layout|flex": 1
             },
-            "name": "MyContainer1",
             "designerId": "d7721d4b-da8b-44c3-be10-57772a8e2e71",
             "cn": [
                 {
@@ -52,7 +51,6 @@
                             "</div>"
                         ]
                     },
-                    "name": "tpl2",
                     "designerId": "5c1a3551-66c3-4686-91cc-9b6a16ff02c5",
                     "cn": [
                         {
@@ -86,7 +84,6 @@
                                     ""
                                 ]
                             },
-                            "name": "scss4",
                             "designerId": "6898e935-9fea-483e-8b48-8590019d9fe0"
                         }
                     ]
@@ -105,11 +102,11 @@
                         "docked": "right",
                         "hidden": true,
                         "hideAnimation": "popOut",
+                        "iconCls": "icon-delete",
                         "itemId": "deleteDebt",
                         "showAnimation": "pop",
-                        "text": "Delete Debt"
+                        "text": null
                     },
-                    "name": "MyButton6",
                     "designerId": "bcfbf8e7-f4f0-40cb-bba2-d34ea91a08bc"
                 }
             ]
@@ -135,7 +132,6 @@
                     "deleteDebtButton.setData(record);"
                 ]
             },
-            "name": "updateRecord",
             "designerId": "7569f155-b7df-4c1c-910f-d4a5aa750289"
         },
         {
@@ -151,7 +147,6 @@
                     "this.down('button#deleteDebt').show();"
                 ]
             },
-            "name": "showDeleteButton",
             "designerId": "3f38b50f-2507-49c1-a2d1-1671f30eb304"
         },
         {
@@ -167,7 +162,6 @@
                     "this.down('button#deleteDebt').hide();"
                 ]
             },
-            "name": "hideDeleteButton",
             "designerId": "3e0e5d2a-18c6-425c-b123-b742423ce109"
         }
     ]

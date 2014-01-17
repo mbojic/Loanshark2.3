@@ -48,7 +48,6 @@
                 ],
                 "title": "Summary"
             },
-            "name": "summary4",
             "configAlternates": {
                 "tab": "object"
             },
@@ -82,7 +81,6 @@
                 ],
                 "title": "Contacts"
             },
-            "name": "contacts4",
             "configAlternates": {
                 "tab": "object"
             },
@@ -116,7 +114,6 @@
                 ],
                 "title": "Debts"
             },
-            "name": "debts4",
             "configAlternates": {
                 "tab": "object"
             },
@@ -146,7 +143,6 @@
                 "docked": "top",
                 "ui": "light"
             },
-            "name": "MyTabBar",
             "designerId": "2bf55f37-fecf-4177-b0e6-4e8f2daa158a"
         }
     ]

@@ -42,7 +42,6 @@
                 ],
                 "name": "tap"
             },
-            "name": "onAddDebtTap",
             "designerId": "d052f9b3-4825-494a-9399-af76f803f5d7"
         },
         {
@@ -99,7 +98,6 @@
                 ],
                 "name": "tap"
             },
-            "name": "onDeleteDebtTap",
             "designerId": "0d7f1a96-96aa-471b-9097-43b3069600ea"
         },
         {
@@ -135,7 +133,6 @@
                 ],
                 "name": "itemtap"
             },
-            "name": "onDebtTap",
             "designerId": "a580a39b-93f1-485d-ab06-78791cf40158"
         },
         {
@@ -172,7 +169,6 @@
                 ],
                 "name": "tap"
             },
-            "name": "onCancelDebtTap",
             "designerId": "6d74154f-e13e-4be4-a945-5517eb3ffaab"
         },
         {
@@ -265,7 +261,6 @@
                 ],
                 "name": "tap"
             },
-            "name": "onSaveDebtTap",
             "designerId": "43b5da1d-20ef-4c43-9305-6566586456d1"
         },
         {
@@ -308,7 +303,6 @@
                 ],
                 "name": "tap"
             },
-            "name": "onEmailTap",
             "designerId": "78e4ba22-8faa-4d8a-adda-7cbaac376f2f"
         },
         {
@@ -344,7 +338,6 @@
                 ],
                 "name": "activeitemchange"
             },
-            "name": "onMainViewActiveItemChange",
             "designerId": "1988e8b2-49db-4144-9ce7-1c2df667e197"
         },
         {
@@ -358,7 +351,6 @@
                 "ref": "addDebt",
                 "selector": "button#addDebt"
             },
-            "name": "addDebt",
             "designerId": "bcb6d234-5663-4faf-9a9b-9218a6384ebc"
         },
         {
@@ -372,7 +364,6 @@
                 "ref": "deleteDebt",
                 "selector": "button#deleteDebt"
             },
-            "name": "deleteDebt",
             "designerId": "9ca22efe-5088-4962-8385-328f9adbb956"
         },
         {
@@ -386,7 +377,6 @@
                 "ref": "cancelDebt",
                 "selector": "button#cancelDebt"
             },
-            "name": "cancelDebt",
             "designerId": "2b41df8b-53d2-429b-9659-833b8554aa68"
         },
         {
@@ -400,7 +390,6 @@
                 "ref": "emailDebt",
                 "selector": "button#emailDebt"
             },
-            "name": "emailDebt",
             "designerId": "75346ede-8ae2-48e3-86b1-f3532679b00e"
         },
         {
@@ -414,7 +403,6 @@
                 "ref": "saveDebt",
                 "selector": "button#saveDebt"
             },
-            "name": "saveDebt",
             "designerId": "c1564c48-076c-4049-a3e7-629b3c3be5dd"
         },
         {
@@ -428,7 +416,6 @@
                 "ref": "addPayment",
                 "selector": "button#addPayment"
             },
-            "name": "addPayment",
             "designerId": "0477d689-61b9-4dde-9150-aa13f3c8e34e"
         },
         {
@@ -442,7 +429,6 @@
                 "ref": "contactName",
                 "selector": "selectfield#preySelectField"
             },
-            "name": "contactName",
             "designerId": "100c7ab3-fcac-4280-9e74-997560314bdb"
         },
         {
@@ -456,7 +442,6 @@
                 "ref": "debtHeaderLabel",
                 "selector": "label#debtHeaderLabel"
             },
-            "name": "debtHeaderLabel",
             "designerId": "13b83301-36f5-4742-91ba-8ef10cecb708"
         },
         {
@@ -470,7 +455,6 @@
                 "ref": "paymentHistoryLabel",
                 "selector": "label#paymentHistoryLabel"
             },
-            "name": "paymentHistoryLabel",
             "designerId": "29010f47-175c-4aaf-9dd7-a4ae448e2951"
         },
         {
@@ -484,7 +468,6 @@
                 "ref": "paymentDataView",
                 "selector": "dataview#paymentDataView"
             },
-            "name": "paymentDataView",
             "designerId": "23ba464c-ed6d-4175-ab0f-7accbb581206"
         },
         {
@@ -500,7 +483,6 @@
                 "selector": "formpanel#DebtDetail",
                 "xtype": "DebtDetail"
             },
-            "name": "debtDetail",
             "designerId": "41d35526-9e6c-43f1-9710-daa266e290be"
         },
         {
@@ -514,7 +496,6 @@
                 "ref": "contactDetail",
                 "selector": "formpanel#ContactDetail"
             },
-            "name": "contactDetail",
             "designerId": "6482e12b-c6c8-418c-a991-14b621eb79b8"
         },
         {
@@ -528,7 +509,6 @@
                 "ref": "paymentDetail",
                 "selector": "formpanel#PaymentDetail"
             },
-            "name": "paymentDetail",
             "designerId": "dce38bb9-62f6-4e3e-b081-b59048ee73a3"
         },
         {
@@ -542,7 +522,6 @@
                 "ref": "mainView",
                 "selector": "tabpanel#MainView"
             },
-            "name": "mainView",
             "designerId": "13be12f5-13e9-4899-8b32-5cd148fd6ac4"
         },
         {
@@ -607,7 +586,6 @@
                 ],
                 "name": "activate"
             },
-            "name": "onDebtDetailActivate",
             "designerId": "0f51685b-bdfc-41c0-ab00-50a0787c63ce"
         },
         {
@@ -643,7 +621,6 @@
                 ],
                 "name": "itemswipe"
             },
-            "name": "onDebtDataviewItemSwipe",
             "designerId": "8332d416-30d8-4746-9e93-9a5b42e0bcb4"
         },
         {
@@ -657,7 +634,6 @@
                 "ref": "debts",
                 "selector": "panel#Debts"
             },
-            "name": "debts",
             "designerId": "d7688c43-90f5-48f7-a146-4a68a6f83b9f"
         },
         {
@@ -671,7 +647,6 @@
                 "ref": "debtDataView",
                 "selector": "dataview#debtDataView"
             },
-            "name": "debtDataView",
             "designerId": "f03179d1-be6e-4d1e-b77d-c42b7130d44c"
         },
         {
@@ -685,7 +660,6 @@
                 "ref": "contactDetailDebtDataView",
                 "selector": "#ContactDetail dataview#debtDataView"
             },
-            "name": "contactDetailDebtDataView",
             "designerId": "1cbf5665-b1a4-413d-98c4-dcddfe4f7349"
         },
         {
@@ -722,7 +696,6 @@
                     "}"
                 ]
             },
-            "name": "resetDeleteButtonsDebtDataView",
             "designerId": "bdec1e05-16f6-4c9e-ac84-eccb46460240"
         },
         {
@@ -743,7 +716,6 @@
                 ],
                 "name": "deactivate"
             },
-            "name": "onContactDetailDeactivate",
             "designerId": "613f3fbc-dcee-418f-a2ea-1eb6a84bf820"
         },
         {
@@ -764,7 +736,6 @@
                 ],
                 "name": "deactivate"
             },
-            "name": "onMainViewDeactivate",
             "designerId": "5a80f56d-3a57-4915-9340-5ced70aea84f"
         }
     ]

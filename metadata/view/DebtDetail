@@ -44,7 +44,6 @@
                 "title": "Debt Details",
                 "ui": "light"
             },
-            "name": "MyTitleBar1",
             "designerId": "6a754f7c-a94f-41dd-8910-15f72b00115d",
             "cn": [
                 {
@@ -59,7 +58,6 @@
                         "id": "cancelDebt",
                         "text": null
                     },
-                    "name": "MyButton7",
                     "designerId": "3e87fb5f-48ba-419f-8d23-b559c1618a77"
                 },
                 {
@@ -75,7 +73,6 @@
                         "id": "emailDebt",
                         "text": null
                     },
-                    "name": "MyButton8",
                     "designerId": "5c7992fc-cb49-4d16-8c5f-54d81b2e1ca7"
                 }
             ]
@@ -94,7 +91,6 @@
                 "height": 100,
                 "id": "debtHeaderLabel"
             },
-            "name": "MyLabel2",
             "designerId": "05cf1cc9-2d24-48cb-a4e6-b500fcac78ab"
         },
         {
@@ -108,10 +104,11 @@
                 "cls": [
                     "loanshark-add-button"
                 ],
+                "height": "3em",
                 "id": "addPayment",
+                "margin": "1em",
                 "text": "Add Payment"
             },
-            "name": "MyButton9",
             "designerId": "d52c2a35-a78d-42ed-991a-fd7b2ce9fc7b"
         },
         {
@@ -125,7 +122,6 @@
                 "designer|displayName": "detailFieldSet",
                 "title": null
             },
-            "name": "MyFieldSet1",
             "designerId": "e80b8b61-3864-4d2b-84fe-735111fdae7a",
             "cn": [
                 {
@@ -145,7 +141,6 @@
                         "store": "PeopleStore",
                         "valueField": "id"
                     },
-                    "name": "MySelectField",
                     "designerId": "9611c619-62bf-48af-925d-e008670ced49"
                 },
                 {
@@ -168,7 +163,6 @@
                             "}"
                         ]
                     },
-                    "name": "MyDatePicker",
                     "configAlternates": {
                         "value": "object"
                     },
@@ -181,7 +175,6 @@
                                 "type": "object"
                             },
                             "codeClass": null,
-                            "name": "MyDatePicker1",
                             "designerId": "1802f766-dc2d-44d6-ac14-7f26f0464590",
                             "cn": [
                                 {
@@ -194,7 +187,6 @@
                                     "userConfig": {
                                         "text": "Done"
                                     },
-                                    "name": "MyButton10",
                                     "designerId": "6ab42d2b-67c2-425c-8216-b5077434025e"
                                 },
                                 {
@@ -207,7 +199,6 @@
                                     "userConfig": {
                                         "text": "Cancel"
                                     },
-                                    "name": "MyButton11",
                                     "designerId": "32fc4f4d-8051-457f-bc84-7769fd815e8b"
                                 }
                             ]
@@ -226,7 +217,6 @@
                         "labelAlign": "top",
                         "name": "amount"
                     },
-                    "name": "MyNumberField",
                     "designerId": "043dab65-ec58-4604-8f76-9f3b88f40b93"
                 },
                 {
@@ -241,7 +231,6 @@
                         "labelAlign": "top",
                         "name": "reason"
                     },
-                    "name": "MyTextField2",
                     "designerId": "58abef71-570c-4489-ba16-1038f1860c86"
                 }
             ]
@@ -258,7 +247,6 @@
                 "html": "Payments Made",
                 "itemId": "paymentHistoryLabel"
             },
-            "name": "MyLabel3",
             "designerId": "a29b4e18-faf3-403f-a1e3-21b3db09b2a5"
         },
         {
@@ -280,7 +268,6 @@
                 "store": "PaymentStore",
                 "useComponents": true
             },
-            "name": "MyDataView3",
             "designerId": "d55e8a65-0bb3-4b37-95e5-efb921fe2740",
             "cn": [
                 {
@@ -302,7 +289,6 @@
                         ],
                         "name": "refresh"
                     },
-                    "name": "onPaymentDataViewRefresh",
                     "designerId": "5a4440e4-5700-403c-8ebc-d63eaf3e82de"
                 }
             ]
@@ -318,7 +304,6 @@
                 "designer|displayName": "debtDetailToolbar",
                 "docked": "bottom"
             },
-            "name": "MyToolbar3",
             "designerId": "b176d25e-3296-4a4f-8e44-1e0a88bf15a0",
             "cn": [
                 {
@@ -328,7 +313,6 @@
                         "type": "array"
                     },
                     "codeClass": null,
-                    "name": "MySpacer1",
                     "designerId": "1ffdec6f-a89a-4b8b-bb47-0e1dc4d4878a"
                 },
                 {
@@ -343,7 +327,6 @@
                         "id": "saveDebt",
                         "text": null
                     },
-                    "name": "MyButton12",
                     "designerId": "13388371-2a93-4d5b-8558-3f7e7e06a03f"
                 }
             ]
@@ -376,7 +359,6 @@
                     "}"
                 ]
             },
-            "name": "updateDebtHeaderLabel",
             "designerId": "675a4735-bf6a-48a1-9cf0-41997160e250"
         },
         {
@@ -400,7 +382,6 @@
                     "});"
                 ]
             },
-            "name": "setTransition",
             "designerId": "d009c2c6-0ac5-4920-b62b-2560ae565dc5"
         },
         {
@@ -424,7 +405,6 @@
                     "});"
                 ]
             },
-            "name": "resetTransition",
             "designerId": "59004809-d6ef-4266-ac30-987f0c4e14bd"
         }
     ]

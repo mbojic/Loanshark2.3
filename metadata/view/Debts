@@ -25,7 +25,6 @@
                 "docked": "bottom",
                 "id": "debtsToolbar"
             },
-            "name": "MyToolbar1",
             "designerId": "0e764999-6790-4af7-b953-14c8184872b5",
             "cn": [
                 {
@@ -40,7 +39,6 @@
                         "itemId": "addDebt",
                         "text": null
                     },
-                    "name": "MyButton1",
                     "designerId": "a8ea0ce7-a358-4ef6-ba12-5f1490dc5ed8"
                 }
             ]
@@ -60,7 +58,6 @@
                 "store": "DebtsStore",
                 "useComponents": true
             },
-            "name": "MyDataView1",
             "designerId": "e047cff9-e3e3-4ed4-bbcd-cc32830ad037"
         }
     ]

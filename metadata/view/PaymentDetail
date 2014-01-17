@@ -44,7 +44,6 @@
                 "title": "Payment Details",
                 "ui": "light"
             },
-            "name": "MyTitleBar2",
             "designerId": "97826599-fe5b-4754-82a0-01b2102ed3bb",
             "cn": [
                 {
@@ -59,7 +58,6 @@
                         "id": "cancelPayment",
                         "text": null
                     },
-                    "name": "MyButton13",
                     "designerId": "bfe66113-a4af-47fe-81ac-4f8dce4d5c43"
                 }
             ]
@@ -75,7 +73,6 @@
                 "designer|displayName": "detailFieldSet",
                 "title": null
             },
-            "name": "MyFieldSet2",
             "designerId": "2a5e7020-5213-46dc-b6e7-c2e0793db35a",
             "cn": [
                 {
@@ -98,7 +95,6 @@
                             "}"
                         ]
                     },
-                    "name": "MyDatePicker2",
                     "configAlternates": {
                         "value": "object"
                     },
@@ -111,7 +107,6 @@
                                 "type": "object"
                             },
                             "codeClass": null,
-                            "name": "MyDatePicker3",
                             "designerId": "6bb0aa0f-6928-4eff-94f8-4a921e2be93e",
                             "cn": [
                                 {
@@ -124,7 +119,6 @@
                                     "userConfig": {
                                         "text": "Done"
                                     },
-                                    "name": "MyButton14",
                                     "designerId": "9e8fe45f-a06c-4876-a8ee-f843a0d472e3"
                                 },
                                 {
@@ -137,7 +131,6 @@
                                     "userConfig": {
                                         "text": "Cancel"
                                     },
-                                    "name": "MyButton15",
                                     "designerId": "4c4a3bb3-d5ce-44c0-9773-bca03832def2"
                                 }
                             ]
@@ -157,7 +150,6 @@
                         "labelAlign": "top",
                         "name": "amount"
                     },
-                    "name": "MyNumberField1",
                     "designerId": "1c21b1eb-e623-4e92-9a7e-463d7860a164"
                 },
                 {
@@ -172,7 +164,6 @@
                         "labelAlign": "top",
                         "name": "note"
                     },
-                    "name": "MyTextField3",
                     "designerId": "a6d14d01-a147-4e7f-8f1f-0764a58e5e51"
                 },
                 {
@@ -185,7 +176,6 @@
                     "userConfig": {
                         "name": "debt_id"
                     },
-                    "name": "MyHiddenField",
                     "designerId": "46cb8d45-90d5-4fdf-81df-a3efe72d9ed8"
                 }
             ]
@@ -201,7 +191,6 @@
                 "designer|displayName": "paymentDetailToolbar",
                 "docked": "bottom"
             },
-            "name": "MyToolbar4",
             "designerId": "e30fa7ca-5156-4a1c-b978-89bd450bda2a",
             "cn": [
                 {
@@ -211,7 +200,6 @@
                         "type": "array"
                     },
                     "codeClass": null,
-                    "name": "MySpacer2",
                     "designerId": "43403f81-cceb-44db-a83d-1e8f92724798"
                 },
                 {
@@ -226,7 +214,6 @@
                         "id": "savePayment",
                         "text": null
                     },
-                    "name": "MyButton16",
                     "designerId": "ee190a2b-9cf0-44e6-a073-677b9c515288"
                 }
             ]

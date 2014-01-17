@@ -27,7 +27,6 @@
                 "ref": "cancelPayment",
                 "selector": "button#cancelPayment"
             },
-            "name": "cancelPayment",
             "designerId": "ce9a0b05-1acb-4eb4-8b41-879a050a6e5b"
         },
         {
@@ -41,7 +40,6 @@
                 "ref": "savePayment",
                 "selector": "button#savePayment"
             },
-            "name": "savePayment",
             "designerId": "8459a62d-b173-4772-a414-211439d6e4fa"
         },
         {
@@ -69,7 +67,6 @@
                 ],
                 "name": "tap"
             },
-            "name": "onAddPayment",
             "designerId": "2d3f47e6-ab7d-464f-8ba5-97c0d59e3dfa"
         },
         {
@@ -85,7 +82,6 @@
                 "selector": "formpanel#PaymentDetail",
                 "xtype": "PaymentDetail"
             },
-            "name": "paymentDetail",
             "designerId": "f776c991-f3e5-44f0-a4b1-23a7f6214bae"
         },
         {
@@ -109,7 +105,6 @@
                 ],
                 "name": "tap"
             },
-            "name": "onCancelPayment",
             "designerId": "bb974791-5979-41f6-b8e7-4b8d4bac638f"
         },
         {
@@ -123,7 +118,6 @@
                 "ref": "debtDetail",
                 "selector": "formpanel#DebtDetail"
             },
-            "name": "debtDetail",
             "designerId": "c3bc0653-a8c2-418d-b060-a4c6a5e5579f"
         },
         {
@@ -198,7 +192,6 @@
                 ],
                 "name": "tap"
             },
-            "name": "onSavePayment",
             "designerId": "24ee1bf4-f106-4db9-ac28-db5331fd0962"
         },
         {
@@ -251,7 +244,6 @@
                 ],
                 "name": "tap"
             },
-            "name": "onDeletePayment",
             "designerId": "956123cd-0cb7-44e7-94a6-0df689d19bf5"
         },
         {
@@ -274,7 +266,6 @@
                 ],
                 "name": "activate"
             },
-            "name": "onPaymentDetailActivate",
             "designerId": "f79a77d5-c763-464c-be42-ffa8dae37804"
         },
         {
@@ -299,7 +290,6 @@
                 ],
                 "name": "itemtap"
             },
-            "name": "onPaymentTap",
             "designerId": "dcfc3f37-e533-46be-8d5a-05bfa48bfbd6"
         },
         {
@@ -335,7 +325,6 @@
                 ],
                 "name": "itemswipe"
             },
-            "name": "onPaymentDataviewItemSwipe",
             "designerId": "b525240b-dfa5-4c50-805c-2c7623162a18"
         },
         {
@@ -354,7 +343,6 @@
                 ],
                 "name": "deactivate"
             },
-            "name": "onDebtDetailDeactivate",
             "designerId": "eadf4dcc-75a4-4362-a4cd-763b5b697964"
         },
         {
@@ -368,7 +356,6 @@
                 "ref": "paymentDataView",
                 "selector": "dataview#paymentDataView"
             },
-            "name": "paymentDataView",
             "designerId": "87a40f9c-6eb6-4466-8cfe-c34cb437ad6a"
         },
         {
@@ -392,7 +379,6 @@
                     "}"
                 ]
             },
-            "name": "resetDeleteButtonsPaymentDataView",
             "designerId": "00f08cc9-8bbb-40bd-a2ef-98102d9dcfbd"
         }
     ]

@@ -57,7 +57,6 @@
             "Summary"
         ]
     },
-    "name": "Application",
     "designerId": "application",
     "cn": [
         {
@@ -67,7 +66,6 @@
                 "type": "object"
             },
             "codeClass": null,
-            "name": "Loader",
             "designerId": "4c3daf89-b9ca-4af9-adc3-129740ce301f"
         }
     ]

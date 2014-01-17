@@ -12,7 +12,6 @@
         "layout": "hbox",
         "padding": null
     },
-    "name": "MyDataItem",
     "designerId": "448ac907-c824-4a3e-9a26-6895624d42dc",
     "cn": [
         {
@@ -29,7 +28,6 @@
                 "itemId": "paymentListItemDetail",
                 "layout|flex": 1
             },
-            "name": "MyContainer2",
             "designerId": "e5b8cdd1-ef54-4c50-9304-86c3de877012",
             "cn": [
                 {
@@ -52,7 +50,6 @@
                             "</div>"
                         ]
                     },
-                    "name": "tpl",
                     "designerId": "1493fe60-0ff9-4b85-a5fc-f71c25902624",
                     "cn": [
                         {
@@ -86,7 +83,6 @@
                                     ""
                                 ]
                             },
-                            "name": "scss5",
                             "designerId": "057ec7d0-b43a-411f-b35d-4c52820c1e7d"
                         }
                     ]
@@ -105,11 +101,11 @@
                         "docked": "right",
                         "hidden": true,
                         "hideAnimation": "popOut",
+                        "iconCls": "icon-delete",
                         "itemId": "deletePayment",
                         "showAnimation": "pop",
-                        "text": "Delete Payment"
+                        "text": null
                     },
-                    "name": "MyButton17",
                     "designerId": "7c3e642d-7ddd-412e-b553-44b83772cba6"
                 }
             ]
@@ -135,7 +131,6 @@
                     "deletePaymentButton.setData(record);"
                 ]
             },
-            "name": "updateRecord",
             "designerId": "90d59f7c-e9b3-4ca5-a3fc-68809988d189"
         },
         {
@@ -151,7 +146,6 @@
                     "this.down('button#deletePayment').show();"
                 ]
             },
-            "name": "showDeleteButton",
             "designerId": "f93b5086-bf9e-4016-8e96-c4f34ce74f6b"
         },
         {
@@ -167,7 +161,6 @@
                     "this.down('button#deletePayment').hide();"
                 ]
             },
-            "name": "hideDeleteButton",
             "designerId": "8a114b45-aa5d-4bbc-a1ce-c7ebbecf80ac"
         }
     ]

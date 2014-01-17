@@ -1,5 +1,5 @@
 {
-    "name": "Loanshark2.3new",
+    "name": "Loanshark",
     "settings": {
         "cmd": {
             "license": "commercial",
@@ -29,10 +29,10 @@
             "display": "Build web app"
         }
     },
-    "xdsVersion": "3.0.1",
-    "xdsBuild": 1359,
+    "xdsVersion": "3.0.2",
+    "xdsBuild": 1376,
     "schemaVersion": 1,
-    "upgradeVersion": 300000000005,
+    "upgradeVersion": 300000000004,
     "framework": "touch23",
     "viewOrderMap": {
         "view": [

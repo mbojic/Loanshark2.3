@@ -25,7 +25,6 @@
                 "name": "id",
                 "type": "auto"
             },
-            "name": "field5",
             "designerId": "58cfa274-2d4c-43fd-8f53-51ac9452cf9c"
         },
         {
@@ -39,7 +38,6 @@
                 "name": "reason",
                 "type": "string"
             },
-            "name": "field6",
             "designerId": "5fe04692-cd88-43d2-b003-07782b92b53d"
         },
         {
@@ -53,7 +51,6 @@
                 "name": "amount",
                 "type": "float"
             },
-            "name": "field7",
             "designerId": "309bf3f1-25cc-402c-85ae-8e5d23b56fb5"
         },
         {
@@ -70,7 +67,6 @@
                 "name": "balance",
                 "type": "float"
             },
-            "name": "field8",
             "designerId": "76e0be59-6334-431b-b5ef-3082eb8e8064"
         },
         {
@@ -84,7 +80,6 @@
                 "name": "date",
                 "type": "date"
             },
-            "name": "field9",
             "designerId": "18a6006f-0cba-4ebb-9511-4a733908596c"
         },
         {
@@ -98,7 +93,6 @@
                 "name": "person_id",
                 "type": "auto"
             },
-            "name": "field10",
             "designerId": "6097a7f1-27e9-432e-af37-9701aaa3d4ff"
         },
         {
@@ -111,7 +105,6 @@
             "userConfig": {
                 "id": "Debts"
             },
-            "name": "MyLocalStorageProxy1",
             "designerId": "ad3aa3dd-9493-49fe-ba5d-27eaa16fdfb9"
         },
         {
@@ -140,7 +133,6 @@
                     "this.set('balance', (debtAmount - payments).toFixed(2));"
                 ]
             },
-            "name": "calcBalance",
             "designerId": "456ee90f-baae-4079-b9a3-1821447b1d49"
         },
         {
@@ -167,7 +159,6 @@
                     ""
                 ]
             },
-            "name": "cascadeDelete",
             "designerId": "9b4fa6f8-dbd7-4b70-9b1e-3049fc0fad5d"
         }
     ]

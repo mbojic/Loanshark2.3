@@ -29,7 +29,6 @@
                 "layout": null,
                 "layout|flex": 1
             },
-            "name": "MyContainer",
             "designerId": "64c629c0-1c5f-4c9a-85a7-436d113d05e3",
             "cn": [
                 {
@@ -52,7 +51,6 @@
                             "</div>"
                         ]
                     },
-                    "name": "tpl1",
                     "designerId": "aec9e479-75ca-4999-9cea-408655493c40",
                     "cn": [
                         {
@@ -86,7 +84,6 @@
                                     ""
                                 ]
                             },
-                            "name": "scss3",
                             "designerId": "15295578-998f-4154-8ca9-21abc97ad236"
                         }
                     ]
@@ -105,11 +102,11 @@
                         "docked": "right",
                         "hidden": true,
                         "hideAnimation": "popOut",
+                        "iconCls": "icon-delete",
                         "itemId": "deleteContact",
                         "showAnimation": "pop",
-                        "text": "Delete Contact"
+                        "text": null
                     },
-                    "name": "MyButton2",
                     "designerId": "80ba552d-0f63-4134-a323-025485d1e35b"
                 }
             ]
@@ -135,7 +132,6 @@
                     "deleteContactButton.setData(record);"
                 ]
             },
-            "name": "updateRecord",
             "designerId": "3a9cb254-946f-494a-9cd6-61afa276f2f5"
         },
         {
@@ -151,7 +147,6 @@
                     "this.down('button#deleteContact').show();"
                 ]
             },
-            "name": "showDeleteButton",
             "designerId": "9a43240a-a8dd-46f3-8460-7854edf34b62"
         },
         {
@@ -167,7 +162,6 @@
                     "this.down('button#deleteContact').hide();"
                 ]
             },
-            "name": "hideDeleteButton",
             "designerId": "de1fde54-7f0f-4485-9ca4-9027c588b3c7"
         }
     ]

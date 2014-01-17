@@ -21,12 +21,13 @@
       {
          "update": "delta",
          "platform": [
-            "desktop",
+            "phone",
             "tablet",
-            "phone"
+            "desktop"
          ],
          "theme": "Default",
-         "path": "resources/css/sencha-touch-3a6c9aad-f768-4b0a-bead-3820a42bdfbe.css"
+         "path": "theme/sencha-touch-3a6c9aad-f768-4b0a-bead-3820a42bdfbe.css",
+         "_architect_active_theme": true
       }
    ],
    "appCache": {

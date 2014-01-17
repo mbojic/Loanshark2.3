@@ -24,7 +24,6 @@
                 "name": "id",
                 "type": "auto"
             },
-            "name": "field",
             "designerId": "e15d79c3-16c9-4c9d-9e2d-dfc85d77623f"
         },
         {
@@ -38,7 +37,6 @@
                 "name": "debt_id",
                 "type": "auto"
             },
-            "name": "field1",
             "designerId": "52508ad7-de6a-40ce-b95f-d381eb9581c3"
         },
         {
@@ -52,7 +50,6 @@
                 "name": "amount",
                 "type": "float"
             },
-            "name": "field2",
             "designerId": "113f170a-886c-4ff1-86ef-8c8e3e37a6ab"
         },
         {
@@ -66,7 +63,6 @@
                 "name": "date",
                 "type": "date"
             },
-            "name": "field3",
             "designerId": "34b06d45-b6d2-441e-bc46-0d0d5e000370"
         },
         {
@@ -80,7 +76,6 @@
                 "name": "note",
                 "type": "string"
             },
-            "name": "field4",
             "designerId": "4c6730e9-734c-4e40-a795-05fd98e108dd"
         },
         {
@@ -93,7 +88,6 @@
             "userConfig": {
                 "id": "Payments"
             },
-            "name": "MyLocalStorageProxy",
             "designerId": "4318e318-5476-4da2-8c53-858169e24f14"
         }
     ]

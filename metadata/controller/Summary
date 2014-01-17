@@ -33,7 +33,6 @@
                     ""
                 ]
             },
-            "name": "launch",
             "designerId": "095617d4-9d6e-4c40-914c-d1f1b17f14d5"
         },
         {
@@ -47,7 +46,6 @@
                 "ref": "summaryContents",
                 "selector": "#summaryContents"
             },
-            "name": "summaryContents",
             "designerId": "a1ccd479-0dbe-4017-96a1-9ce545283186"
         },
         {
@@ -69,7 +67,6 @@
                     "});"
                 ]
             },
-            "name": "updateSummaryContents",
             "designerId": "cc4152d2-41a3-4f28-a799-ebece0685f96"
         }
     ]

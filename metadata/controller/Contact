@@ -37,7 +37,6 @@
                 ],
                 "name": "tap"
             },
-            "name": "onAddContactTap",
             "designerId": "6b33c26a-dac6-4941-b6d5-4cb225359748"
         },
         {
@@ -74,7 +73,6 @@
                 ],
                 "name": "tap"
             },
-            "name": "onDeleteContactTap",
             "designerId": "e7f0ca46-4148-4a0c-a005-c99748badb42"
         },
         {
@@ -101,7 +99,6 @@
                 ],
                 "name": "itemtap"
             },
-            "name": "onContactTap",
             "designerId": "2b8e9caa-2379-43e6-9537-29c5d28b0972"
         },
         {
@@ -136,7 +133,6 @@
                 ],
                 "name": "tap"
             },
-            "name": "onCancelContactTap",
             "designerId": "517f716b-cb42-4969-b32a-18df9c66a218"
         },
         {
@@ -199,7 +195,6 @@
                 ],
                 "name": "tap"
             },
-            "name": "onSaveContactTap",
             "designerId": "8e52643c-0904-4d16-b38d-61f89fa95174"
         },
         {
@@ -213,7 +208,6 @@
                 "ref": "addContact",
                 "selector": "button#addContact"
             },
-            "name": "addContact",
             "designerId": "28da342f-2398-4dab-861b-82f3ed615155"
         },
         {
@@ -227,7 +221,6 @@
                 "ref": "deleteContact",
                 "selector": "button#deleteContact"
             },
-            "name": "deleteContact",
             "designerId": "6d93b66a-80bd-48b7-9fd7-6e80883c929a"
         },
         {
@@ -241,7 +234,6 @@
                 "ref": "cancelContact",
                 "selector": "button#cancelContact"
             },
-            "name": "cancelContact",
             "designerId": "858b92b7-1a47-42ff-9557-37872e6fb4db"
         },
         {
@@ -255,7 +247,6 @@
                 "ref": "saveContact",
                 "selector": "button#saveContact"
             },
-            "name": "saveContact",
             "designerId": "d277e1ab-2868-48bf-bda4-39430d569ad8"
         },
         {
@@ -269,7 +260,6 @@
                 "ref": "addDebt",
                 "selector": "#ContactDetail button#addDebt"
             },
-            "name": "addDebt",
             "designerId": "eba509cc-773e-4e56-8a96-b32898f2ba85"
         },
         {
@@ -283,7 +273,6 @@
                 "ref": "contactHeaderLabel",
                 "selector": "label#contactHeaderLabel"
             },
-            "name": "contactHeaderLabel",
             "designerId": "e56103cb-ebf6-467d-8dd7-eea992f30e80"
         },
         {
@@ -297,7 +286,6 @@
                 "ref": "debtHistoryLabel",
                 "selector": "label#debtHistoryLabel"
             },
-            "name": "debtHistoryLabel",
             "designerId": "ab78f5c6-f876-4f70-9462-3eb560ae6dad"
         },
         {
@@ -313,7 +301,6 @@
                 "selector": "formpanel#ContactDetail",
                 "xtype": "ContactDetail"
             },
-            "name": "contactDetail",
             "designerId": "7ef0ec57-25ef-4049-afa7-d9e4ba33527c"
         },
         {
@@ -327,7 +314,6 @@
                 "ref": "contacts",
                 "selector": "panel#Contacts"
             },
-            "name": "contacts",
             "designerId": "6e55b3c1-7e8e-49dc-b740-3b7113b3aaef"
         },
         {
@@ -341,7 +327,6 @@
                 "ref": "mainView",
                 "selector": "tabpanel#MainView"
             },
-            "name": "mainView",
             "designerId": "6562d1dd-5140-4bd0-98c8-0ac42eed3010"
         },
         {
@@ -387,7 +372,6 @@
                 ],
                 "name": "activate"
             },
-            "name": "onContactDetailActivate",
             "designerId": "ef2db402-5f63-4fb7-8116-3f7eb19cf052"
         },
         {
@@ -401,7 +385,6 @@
                 "ref": "debtDataView",
                 "selector": "#ContactDetail dataview#debtDataView"
             },
-            "name": "debtDataView",
             "designerId": "010a4d3a-a875-4d52-953f-5eaebc6d96fc"
         },
         {
@@ -437,7 +420,6 @@
                 ],
                 "name": "itemswipe"
             },
-            "name": "onContactDataViewItemSwipe",
             "designerId": "023d874f-279a-4251-9a3e-6456426525d1"
         },
         {
@@ -451,7 +433,6 @@
                 "ref": "contactDataView",
                 "selector": "dataview#contactDataView"
             },
-            "name": "contactDataView",
             "designerId": "9c62bf55-5840-449b-92a3-6861901441ff"
         },
         {
@@ -475,7 +456,6 @@
                     "}"
                 ]
             },
-            "name": "resetDeleteButtonsContactDataView",
             "designerId": "1116b532-0744-450e-a7a2-2d8de22d672f"
         },
         {
@@ -496,7 +476,6 @@
                 ],
                 "name": "deactivate"
             },
-            "name": "onMainViewDeactivate",
             "designerId": "9d6c28d1-2b19-4ac1-986c-fd700ebad53b"
         },
         {
@@ -520,7 +499,6 @@
                 ],
                 "name": "activeitemchange"
             },
-            "name": "onMainViewActiveItemChange",
             "designerId": "c9c11cd0-8868-4fc2-ac95-964cfaf19a22"
         }
     ]

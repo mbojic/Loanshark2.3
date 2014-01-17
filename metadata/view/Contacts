@@ -25,7 +25,6 @@
                 "docked": "bottom",
                 "id": "contactToolbar"
             },
-            "name": "MyToolbar",
             "designerId": "9ea551a3-15c8-4721-aee0-103c699a8237",
             "cn": [
                 {
@@ -41,7 +40,6 @@
                         "itemId": null,
                         "text": null
                     },
-                    "name": "MyButton",
                     "designerId": "235c89df-f05b-41a3-b0bd-a0bf503eaf77"
                 }
             ]
@@ -61,7 +59,6 @@
                 "store": "PeopleStore",
                 "useComponents": true
             },
-            "name": "MyDataView",
             "designerId": "a0d5a331-4261-45dc-975a-f3684037e9b8"
         }
     ]

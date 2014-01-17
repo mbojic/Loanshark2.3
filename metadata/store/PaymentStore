@@ -27,7 +27,6 @@
                 "designer|displayName": "dateGrouper",
                 "direction": "DESC"
             },
-            "name": "MyGrouper1",
             "designerId": "7b06ff42-78b5-42a4-a778-a85b4a031d3c",
             "cn": [
                 {
@@ -46,7 +45,6 @@
                             "return item.get('date');"
                         ]
                     },
-                    "name": "groupFn",
                     "designerId": "742435f8-1b39-4b8d-ba32-c4bb95c80ecf"
                 }
             ]
